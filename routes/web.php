@@ -19,6 +19,10 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
+// Rutas para el carrusel
+Route::resource('carrusel', App\Http\Controllers\CarruselContenidoController::class);
+Route::post('/carrusel/{carrusel}/toggle-active', [App\Http\Controllers\CarruselContenidoController::class, 'toggleActive'])->name('carrusel.toggle-active');
+Route::post('/carrusel/update-order', [App\Http\Controllers\CarruselContenidoController::class, 'updateOrder'])->name('carrusel.update-order');
 
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
