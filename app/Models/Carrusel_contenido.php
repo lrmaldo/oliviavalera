@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Log;
 
 class Carrusel_contenido extends Model
 {
-    //
     protected $table = 'carrusel_contenidos';
     protected $fillable = [
         'titulo',
@@ -15,18 +14,27 @@ class Carrusel_contenido extends Model
         'archivo',
         'tipo',
         'orden',
-        'activo'
+        'activo',
+        'hotspot_id'
     ];
+
     protected $casts = [
         'activo' => 'boolean',
         'orden' => 'integer',
     ];
+
+    // Relación con Hotspot
+    public function hotspot()
+    {
+        return $this->belongsTo(Hotspot::class, 'hotspot_id');
+    }
+
     public function getArchivoUrlAttribute()
     {
         if (empty($this->archivo)) {
             return null;
         }
-        
+
         try {
             return asset('storage/' . $this->archivo);
         } catch (\Exception $e) {
@@ -37,10 +45,12 @@ class Carrusel_contenido extends Model
             return null;
         }
     }
+
     public function getTipoAttribute($value)
     {
         return $value === 'video' ? 'video' : 'imagen';
     }
+
     public function setArchivoAttribute($value)
     {
         try {
@@ -61,5 +71,10 @@ class Carrusel_contenido extends Model
             ]);
             throw $e;
         }
+    }
+
+    public function hotspots()
+    {
+        return $this->belongsToMany(Hotspot::class, 'carrusel_contenido_hotspot', 'carrusel_contenido_id', 'hotspot_id');
     }
 }

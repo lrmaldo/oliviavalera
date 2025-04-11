@@ -5,206 +5,124 @@ namespace App\Http\Controllers;
 use App\Models\Carrusel_contenido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class CarruselContenidoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $contenidos = Carrusel_contenido::orderBy('orden')->get();
-        return view('carrusel.index', compact('contenidos'));
+        return view('carrusel.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('carrusel.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        try {
-            $request->validate([
-                'titulo' => 'nullable|string|max:255',
-                'descripcion' => 'nullable|string',
-                'archivo' => 'required|file|mimes:jpg,png,mp4|max:25600', // Aumentado a 25MB
-                'tipo' => 'required|in:imagen,video',
-                'orden' => 'nullable|integer',
-                'activo' => 'nullable|boolean',
-            ]);
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'nullable|max:1000',
+            'image' => 'required|image|max:2048', // 2MB max
+            'is_active' => 'sometimes|boolean',
+        ]);
 
-            // Registrar información sobre el archivo para depuración
-            if ($request->hasFile('archivo')) {
-                $file = $request->file('archivo');
-                Log::info('Archivo subido', [
-                    'nombre' => $file->getClientOriginalName(),
-                    'tamaño' => $file->getSize(),
-                    'tipo' => $file->getMimeType(),
-                    'extension' => $file->getClientOriginalExtension()
-                ]);
-            }
+        $path = $request->file('image')->store('carrusel', 'public');
 
-            $contenido = new Carrusel_contenido();
-            $contenido->titulo = $request->titulo;
-            $contenido->descripcion = $request->descripcion;
-            $contenido->tipo = $request->tipo;
-            $contenido->orden = $request->orden ?? 0;
-            $contenido->activo = $request->has('activo');
+        $order = Carrusel_contenido::max('order') + 1;
 
-            // Manejo especial para archivos grandes
-            if ($request->hasFile('archivo')) {
-                // Para videos, usamos un método diferente para evitar problemas de memoria
-                if ($request->tipo == 'video') {
-                    $path = $this->handleVideoUpload($request->file('archivo'));
-                    $contenido->archivo = $path;
-                } else {
-                    $contenido->archivo = $request->file('archivo');
-                }
-            }
+        Carrusel_contenido::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image_path' => $path,
+            'is_active' => $request->has('is_active'),
+            'order' => $order,
+        ]);
 
-            $contenido->save();
-
-            return redirect()->route('carrusel.index')->with('success', 'Contenido creado exitosamente.');
-        } catch (\Exception $e) {
-            // Registrar el error en el log
-            Log::error('Error al guardar contenido: ' . $e->getMessage(), [
-                'archivo' => $request->hasFile('archivo') ? $request->file('archivo')->getClientOriginalName() : 'No hay archivo',
-                'trace' => $e->getTraceAsString()
-            ]);
-
-            return redirect()->back()->with('error', 'Error al subir el archivo: ' . $e->getMessage())->withInput();
-        }
+        return redirect()->route('carrusel.index')
+            ->with('message', 'Elemento añadido al carrusel correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Carrusel_contenido $carrusel)
     {
         return view('carrusel.show', compact('carrusel'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Carrusel_contenido $carrusel)
     {
         return view('carrusel.edit', compact('carrusel'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Carrusel_contenido $carrusel)
     {
-        try {
-            $request->validate([
-                'titulo' => 'nullable|string|max:255',
-                'descripcion' => 'nullable|string',
-                'archivo' => 'nullable|file|mimes:jpg,png,mp4|max:25600', // Aumentado a 25MB
-                'tipo' => 'required|in:imagen,video',
-                'orden' => 'nullable|integer',
-                'activo' => 'nullable|boolean',
-            ]);
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'nullable|max:1000',
+            'image' => 'sometimes|image|max:2048', // 2MB max
+            'is_active' => 'sometimes|boolean',
+        ]);
 
-            $carrusel->titulo = $request->titulo;
-            $carrusel->descripcion = $request->descripcion;
-            $carrusel->tipo = $request->tipo;
-            $carrusel->orden = $request->orden ?? $carrusel->orden;
-            $carrusel->activo = $request->has('activo');
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'is_active' => $request->has('is_active'),
+        ];
 
-            if ($request->hasFile('archivo')) {
-                // Eliminar archivo anterior
-                Storage::disk('public')->delete($carrusel->archivo);
-
-                // Para videos, usamos un método diferente
-                if ($request->tipo == 'video') {
-                    $path = $this->handleVideoUpload($request->file('archivo'));
-                    $carrusel->archivo = $path;
-                } else {
-                    $carrusel->archivo = $request->file('archivo');
-                }
+        if ($request->hasFile('image')) {
+            // Eliminar imagen antigua
+            if ($carrusel->image_path && Storage::disk('public')->exists($carrusel->image_path)) {
+                Storage::disk('public')->delete($carrusel->image_path);
             }
 
-            $carrusel->save();
-
-            return redirect()->route('carrusel.index')->with('success', 'Contenido actualizado exitosamente.');
-        } catch (\Exception $e) {
-            // Registrar el error en el log
-            Log::error('Error al actualizar contenido: ' . $e->getMessage(), [
-                'id' => $carrusel->id,
-                'archivo' => $request->hasFile('archivo') ? $request->file('archivo')->getClientOriginalName() : 'No hay archivo',
-                'trace' => $e->getTraceAsString()
-            ]);
-
-            return redirect()->back()->with('error', 'Error al actualizar: ' . $e->getMessage())->withInput();
+            // Guardar nueva imagen
+            $path = $request->file('image')->store('carrusel', 'public');
+            $data['image_path'] = $path;
         }
+
+        $carrusel->update($data);
+
+        return redirect()->route('carrusel.index')
+            ->with('message', 'Elemento del carrusel actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Carrusel_contenido $carrusel)
+    public function destroy(CarruselContenido $carrusel)
     {
-        // Eliminar el archivo del almacenamiento
-        Storage::disk('public')->delete($carrusel->archivo);
+        // Eliminar imagen
+        if ($carrusel->image_path && Storage::disk('public')->exists($carrusel->image_path)) {
+            Storage::disk('public')->delete($carrusel->image_path);
+        }
 
-        // Eliminar el registro
         $carrusel->delete();
 
-        return redirect()->route('carrusel.index')->with('success', 'Contenido eliminado exitosamente.');
+        return redirect()->route('carrusel.index')
+            ->with('message', 'Elemento del carrusel eliminado correctamente.');
     }
 
-    /**
-     * Toggle the active status
-     */
-    public function toggleActive(Carrusel_contenido $carrusel)
+    public function toggleActive(CarruselContenido $carrusel)
     {
-        $carrusel->activo = !$carrusel->activo;
+        $carrusel->is_active = !$carrusel->is_active;
         $carrusel->save();
 
-        return response()->json(['success' => true, 'active' => $carrusel->activo]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Estado actualizado correctamente',
+            'is_active' => $carrusel->is_active
+        ]);
     }
 
-    /**
-     * Update the order of items
-     */
     public function updateOrder(Request $request)
     {
-        $items = $request->input('items', []);
+        $request->validate([
+            'items' => 'required|array',
+            'items.*.id' => 'required|exists:carrusel_contenidos,id',
+            'items.*.order' => 'required|integer|min:0',
+        ]);
 
-        foreach ($items as $item) {
-            $contenido = Carrusel_contenido::find($item['id']);
-            if ($contenido) {
-                $contenido->orden = $item['orden'];
-                $contenido->save();
-            }
+        foreach ($request->items as $item) {
+            CarruselContenido::find($item['id'])->update(['order' => $item['order']]);
         }
 
-        return response()->json(['success' => true]);
-    }
-
-    /**
-     * Método especial para manejar subidas de videos grandes
-     */
-    private function handleVideoUpload($file)
-    {
-        // Crear un nombre único para el archivo
-        $filename = uniqid('video_') . '.' . $file->getClientOriginalExtension();
-        $path = 'carrusel_contenidos/' . $filename;
-
-        // Mover el archivo directamente en lugar de usar el método store
-        // Esto evita problemas de memoria con archivos grandes
-        $file->move(storage_path('app/public/carrusel_contenidos'), $filename);
-
-        return $path;
+        return response()->json(['success' => true, 'message' => 'Orden actualizado correctamente']);
     }
 }
