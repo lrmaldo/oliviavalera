@@ -8,7 +8,10 @@ use App\Models\Carrusel_contenido;
 class CarruselList extends Component
 {
     public $contenidos;
+    public $showModal = false;
+    public $selectedContent = null;
     protected $listeners = ['refreshList' => '$refresh'];
+
 
     public function mount()
     {
@@ -51,6 +54,18 @@ class CarruselList extends Component
             $contenido->delete();
             $this->loadContenidos();
         }
+    }
+
+    public function showContentDetails($id)
+    {
+        $this->selectedContent = Carrusel_contenido::find($id);
+        $this->showModal = true;
+    }
+
+    public function closeModal()
+    {
+        $this->showModal = false;
+        $this->selectedContent = null;
     }
 
     public function render()
