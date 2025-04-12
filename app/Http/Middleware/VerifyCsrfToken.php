@@ -7,5 +7,6 @@ class VerifyCsrfToken extends Middleware
 {
     protected $except = [
         'hostpot/*',
+        'hotspot/request',
     ];
 }
