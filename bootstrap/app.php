@@ -12,6 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
+        // Middleware para excluir la verificación CSRF
+        $middleware->validateCsrfTokens(except: [
+            'hotspot/request',
+            '/hotspot/request',
+            'hotspot/request/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

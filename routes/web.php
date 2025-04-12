@@ -38,7 +38,6 @@ Route::get('hotspot/preview', function () {
 })->name('hotspot.preview.index');
 
 // Usar una ruta API para evitar el middleware web completo que incluye CSRF
-Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest'])
-    ->middleware('api'); // Usa el grupo de middleware API que no incluye CSRF por defecto
+Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
 
 require __DIR__.'/auth.php';
