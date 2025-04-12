@@ -35,5 +35,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
 })->name('hotspot.preview.index');
+Route::post('hostpot/request', [HotspotController::class, 'hotspot'])->name('hotspot.request');
+
 
 require __DIR__.'/auth.php';
