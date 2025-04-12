@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HotspotController extends Controller
 {
     //
-    public function hotspot(Request $request){
+    public function handleRequest(Request $request){
         $macAddress = $request->input('macAddress')?? null;
         $nombre = $reuest->input('nombre')?? null;
         /* buscar nombre del hotspot */
