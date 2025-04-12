@@ -14,7 +14,7 @@ class HotspotController extends Controller
         $nombre = $request->input('nombre')?? null;
         /* buscar nombre del hotspot */
         $hotspot = Hotspot::where('nombre', $nombre)->first();
-        dd($request->all());
+        //dd($request->all());
         if (!$hotspot) {
         return abort(404, 'Hotspot not found');
         }
