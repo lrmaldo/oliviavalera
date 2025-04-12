@@ -36,7 +36,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
 })->name('hotspot.preview.index');
-Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest'])
-    ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+
+// Agrupar la ruta específica sin CSRF
+Route::middleware(['web', 'excludedFromcsrf'])->group(function () {
+    Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
+});
 
 require __DIR__.'/auth.php';
