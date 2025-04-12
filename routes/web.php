@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
 })->name('hotspot.preview.index');
-Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
+Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest'])
+    ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
 require __DIR__.'/auth.php';
