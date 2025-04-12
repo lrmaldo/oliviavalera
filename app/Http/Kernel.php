@@ -46,7 +46,7 @@ class Kernel extends HttpKernel
     /**
      * The application's middleware aliases.
      *
-     * @var array
+     * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
         // ...otros middlewares...

@@ -38,7 +38,7 @@ Route::get('hotspot/preview', function () {
 })->name('hotspot.preview.index');
 
 // Agrupar la ruta específica sin CSRF
-Route::middleware(['web', 'excludedFromcsrf'])->group(function () {
+Route::middleware(['web', 'excludedFromCsrf'])->group(function () {
     Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
 });
 
