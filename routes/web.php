@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Livewire\Hotspot\ManageHotspots;
+use App\Http\Middleware\VerifyCsrfToken;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
 })->name('hotspot.preview.index');
-Route::post('hostpot/request', [HotspotController::class, 'hotspot'])->name('hotspot.request');
+Route::post('hostpot/request', [HotspotController::class, 'hotspot'])->name('hotspot.request')->withoutMiddleware([VerifyCsrfToken::class]);
 
 
 require __DIR__.'/auth.php';
