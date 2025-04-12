@@ -11,7 +11,7 @@ class HotspotController extends Controller
     //
     public function handleRequest(Request $request){
         $macAddress = $request->input('macAddress')?? null;
-        $nombre = $reuest->input('nombre')?? null;
+        $nombre = $request->input('nombre')?? null;
         /* buscar nombre del hotspot */
         $hotspot = Hotspot::where('nombre', $nombre)->first();
 
