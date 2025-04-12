@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hotspot extends Model
 {
     protected $fillable = [
-        'nombre',
+        'name',
         'descripcion',
         'activo'
     ];
