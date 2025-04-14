@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Formulario;
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Facades\Agent;
 
 class FormularioController extends Controller
 {
@@ -12,12 +12,12 @@ class FormularioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string|max:255',
-            'apellido' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'telefono' => 'required|string|max:20',
-            'ciudad' => 'required|string|max:255',
-            'estado' => 'required|string|max:255',
+            'nombre'        => 'required|string|max:255',
+            'apellido'      => 'required|string|max:255',
+            'email'         => 'required|email|max:255',
+            'telefono'      => 'required|string|max:20',
+            'ciudad'        => 'required|string|max:255',
+            'estado'        => 'required|string|max:255',
             'codigo_postal' => 'required|string|max:10',
         ]);
 
@@ -40,16 +40,31 @@ class FormularioController extends Controller
         'tipo_dispositivo',
         'tipo_sistema',
         'navegador' */
+      #  dd($request->all());
+        /* ejemplo
+        array:8 [ // app\Http\Controllers\FormularioController.php:43
+  "_token" => "7kuhoE0RTDtAtnHsvA6GUwyh9snZOorAvbRhq3ML"
+  "dst" => "$(link-orig)"
+  "popup" => "true"
+  "nombre" => "leonardo maldonaod"
+  "telefono" => "9851050030"
+  "colonia" => "5 de mayo"
+  "localidad" => "San Juan Bautista Tuxtepec"
+  "necesidades" => array:2 [
+    0 => "espacios"
+    1 => "pavimentacion"
+  ]
+] */
         Formulario::create([
-            'nombre' => $request->input('nombre'),
-            'telefono' => $request->input('telefono'),
-            'colonia' => $request->input('colonia'),
-            'localidad' => $request->input('localidad'),
-            'necesidades' => $request->input('necesidades'),
-            'mac_address' => $request->input('mac_address'),
-            'tipo_dispositivo' => $request->input('tipo_dispositivo'),
-            'tipo_sistema' => $request->input('tipo_sistema'),
-            'navegador' => $request->input('navegador')
+            'nombre'           => $request->input('nombre'),
+            'telefono'         => $request->input('telefono'),
+            'colonia'          => $request->input('colonia'),
+            'localidad'        => $request->input('localidad'),
+            'necesidades'      => json_encode($request->input('necesidades')),
+            'mac_address'      => $request->input('mac_address'),
+            'tipo_dispositivo' => Agent::device(),
+            'tipo_sistema'     => Agent::platform(),
+            'navegador'        => Agent::browser(),
         ]);
 
         // Guardar los datos en la base de datos o realizar otras acciones
@@ -57,12 +72,13 @@ class FormularioController extends Controller
         // Por ejemplo: HotspotForm::create($validated);
 
         // Para pruebas, simplemente log los datos recibidos
-        \Log::info('Datos del formulario de hotspot recibidos', $validated);
+        \Log::info('Datos del formulario de hotspot recibidos');
 
         return response()->json([
             'success' => true,
             'message' => 'Datos guardados correctamente',
-            'data' => $validated
-        ]);
+            'data'    => $request->all(),
+        ])->setStatusCode(201, 'Created');
+
     }
 }

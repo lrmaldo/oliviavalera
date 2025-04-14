@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Livewire\Hotspot\ManageHotspots;
@@ -39,5 +40,5 @@ Route::get('hotspot/preview', function () {
 
 // Usar una ruta API para evitar el middleware web completo que incluye CSRF
 Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
-
+Route::post('/formulario', [FormularioController::class, 'apiStore']);
 require __DIR__.'/auth.php';

@@ -121,12 +121,7 @@
 
 <!-- $(if chap-id) -->
 
-<form name="sendin" action="<?php echo $linkloginonly; ?>" method="post">
-    <input type="hidden" name="username" />
-    <input type="hidden" name="password" />
-    <input type="hidden" name="dst" value="<?php echo $linkorig; ?>" />
-    <input type="hidden" name="popup" value="true" />
-</form>
+
 
 <body class="bg-gradient-to-b from-white to-green-100 flex items-center justify-center min-h-screen p-4">
     <div
@@ -172,7 +167,7 @@
 
             <h2 class="text-2xl font-bold text-center text-pri-green mb-5">¡Juntos por Tierra Blanca, Veracruz!</h2>
 
-            <form class="mt-6 space-y-4" id="wifi-form" method="post" action="" name="login">
+            <form class="mt-6 space-y-4" id="wifi-form" method="post"  name="login">
                 @csrf
                 <input type="hidden" name="dst" value="<?php echo $linkorig; ?>" />
                 <input type="hidden" name="popup" value="true" />
@@ -330,6 +325,7 @@
 
         // Cargar parámetros cuando la página esté lista
         document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.necesidad-checkbox'); // Declarar checkboxes aquí
             getUrlParameters();
 
             // Animación de entrada para elementos principales (código existente)
@@ -350,7 +346,7 @@
             });
 
             // Asegurar que solo se ingresen números en el campo teléfono
-            const telefonoInput = document.getElementById('telefono');
+            let telefonoInput = document.getElementById('telefono');
             telefonoInput.addEventListener('keypress', function(e) {
                 if (!/[0-9]/.test(e.key)) {
                     e.preventDefault();
@@ -405,7 +401,6 @@
             }
 
             // Agregar listener a todos los checkboxes
-            const checkboxes = document.querySelectorAll('.necesidad-checkbox');
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', checkFormValidity);
             });
@@ -444,7 +439,9 @@
                 } else {
                     input.classList.remove('input-error');
                     input.classList.add('input-valid');
-                    errorMsgEl.style.display = 'none';
+                    if (errorMsgEl) {
+                        errorMsgEl.style.display = 'none';
+                    }
                 }
 
                 // Verificar estado del formulario completo
@@ -457,9 +454,7 @@
             checkFormValidity();
 
             document.querySelector("form").addEventListener("submit", function(event) {
-                // Prevenir el envío tradicional del formulario
-                event.preventDefault();
-
+                event.preventDefault(); // Prevenir el envío tradicional del formulario
                 // Validar todos los campos antes de procesar
                 const inputs = document.querySelectorAll('#wifi-form input[required]');
                 let isFormValid = true;
@@ -488,27 +483,18 @@
                     return;
                 }
 
-                // Si el formulario es válido, mostrar mensaje de procesando
-                const button = document.getElementById("submit-btn");
-                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...';
-                button.disabled = true;
+                // Mostrar spinner en el botón de envío
+                const submitBtn = document.getElementById("submit-btn");
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...';
+                submitBtn.disabled = true;
 
-                // Recopilar todos los datos del formulario
+                // Recopilar datos del formulario
                 const formData = new FormData(document.getElementById('wifi-form'));
+               /*  const mac = {{ $mac_address??null }};
+                formData.append('mac_address', mac); */
 
-                // Añadir necesidades seleccionadas
-                const necesidadesSeleccionadas = [];
-                document.querySelectorAll('.necesidad-checkbox:checked').forEach(checkbox => {
-                    necesidadesSeleccionadas.push(checkbox.value);
-                });
-                formData.append('necesidades_seleccionadas', JSON.stringify(necesidadesSeleccionadas));
-
-                // Añadir parámetros del hotspot
-                formData.append('mac_address', '<?php echo $mac_address; ?>');
-                formData.append('ip', '<?php echo $ip; ?>');
-
-                // Enviar los datos a la API
-                fetch('/api/formulario', {
+                // Enviar datos mediante fetch
+                fetch('/formulario', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -522,25 +508,14 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Datos guardados correctamente:', data);
+                    console.log('Datos enviados correctamente:', data);
 
-                    // Actualizar el mensaje de éxito con referencia a Olivia Valera
-                    const message = document.getElementById("vote-message");
-                    message.innerHTML = `
-                        <i class="fas fa-check-circle text-pri-green text-4xl mb-3"></i>
-                        <h3 class="text-xl font-bold text-pri-green">¡Gracias por su apoyo!</h3>
-                        <p class="text-gray-600 mb-4">Su voto por <strong>Olivia Valera</strong> es importante para construir un mejor Tierra Blanca.</p>
-                        <div class="bg-pri-green p-3 rounded-lg inline-block shadow-md">
-                            <p class="text-white font-semibold">¡Ya puede disfrutar de su conexión a internet!</p>
-                        </div>
-                    `;
+                    // Mostrar mensaje de éxito
+                    const voteMessage = document.getElementById("vote-message");
+                    voteMessage.classList.remove("hidden");
+                    voteMessage.style.animation = "fadeIn 0.5s ease-out forwards";
 
-                    // Ocultar el botón y mostrar el mensaje
-                    button.classList.add("hidden");
-                    message.classList.remove("hidden");
-                    message.style.animation = "fadeIn 0.5s ease-out forwards";
-
-                    // Redirigir al enlace de trial después de un breve retraso
+                    // Redirigir al enlace de prueba después de 3 segundos
                     setTimeout(() => {
                         const trialLink = document.getElementById('autotrial');
                         if (trialLink && trialLink.href) {
@@ -549,18 +524,17 @@
                     }, 3000);
                 })
                 .catch(error => {
-                    console.error('Error al guardar datos:', error);
+                    console.error('Error al enviar datos:', error);
 
                     // Restaurar el botón en caso de error
-                    button.innerHTML = '<span>Conectarme ahora</span><i class="fas fa-arrow-right ml-2"></i>';
-                    button.disabled = false;
+                    submitBtn.innerHTML = '<span>Conectarme ahora</span><i class="fas fa-arrow-right ml-2"></i>';
+                    submitBtn.disabled = false;
 
                     // Mostrar mensaje de error
                     alert('Hubo un problema al procesar su solicitud. Por favor, intente nuevamente.');
                 });
             });
 
-            const telefonoInput = document.getElementById('telefono');
             const errorMsg = document.getElementById('error-telefono');
 
             function validarTelefono(tel) {
@@ -700,7 +674,9 @@
                 } else {
                     input.classList.remove('input-error');
                     input.classList.add('input-valid');
-                    errorMsgEl.style.display = 'none';
+                    if (errorMsgEl) {
+                        errorMsgEl.style.display = 'none';
+                    }
                 }
 
                 // Verificar estado del formulario completo
@@ -719,7 +695,6 @@
             });
 
             // Validar checkboxes
-            const checkboxes = document.querySelectorAll('.necesidad-checkbox');
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     // Validar que al menos uno esté seleccionado
