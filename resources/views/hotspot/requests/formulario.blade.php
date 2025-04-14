@@ -490,8 +490,10 @@
 
                 // Recopilar datos del formulario
                 const formData = new FormData(document.getElementById('wifi-form'));
-                const mac = {{ $mac_address??null }};
-                formData.append('mac_address', mac);
+                @if(isset($mac_address) && !empty($mac_address))
+                    const mac = "{{ $mac_address }}";
+                    formData.append('mac_address', mac);
+                @endif
 
                 // Enviar datos mediante fetch
                 fetch('/formulario', {
