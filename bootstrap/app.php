@@ -17,6 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'hotspot/request',
             '/hotspot/request',
             'hotspot/request/*',
+            '/formulario',
+            '/formulario/*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
