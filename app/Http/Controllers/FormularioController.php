@@ -56,6 +56,7 @@ class FormularioController extends Controller
   ]
 ] */
  $agent = new Agent();
+        $deviceType = $agent->device();
         Formulario::create([
             'nombre'           => $request->input('nombre'),
             'telefono'         => $request->input('telefono'),
@@ -63,7 +64,7 @@ class FormularioController extends Controller
             'localidad'        => $request->input('localidad'),
             'necesidades'      => json_encode($request->input('necesidades')),
             'mac_address'      => $request->input('mac_address'),
-            'tipo_dispositivo' => $agent->isTablet() ? 'Tablet' : ($agent->isMobile() ? 'Movil' : 'Escritorio'),
+            'tipo_dispositivo' => $deviceType === 'Tablet' ? 'Tablet' : ($agent->isMobile() ? 'Movil' : 'Escritorio'),
             'tipo_sistema'     => $agent->platform(),
             'navegador'        => $agent->browser(),
         ]);
