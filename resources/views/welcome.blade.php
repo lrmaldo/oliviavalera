@@ -736,9 +736,27 @@
             </div>
         </div>
 
+        <!-- Versión mejorada de la barra de créditos flotante - más responsive -->
+        <div class="credits-bar fixed bottom-0 left-0 right-0 py-3 sm:py-2 px-4 border-t border-gray-200 bg-white shadow-lg z-50">
+            <div class="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-2 sm:space-y-0">
+                <div class="text-xs text-gray-500 order-2 sm:order-1">
+                    &copy; 2025 Campaña Olivia Valera
+                </div>
+                <div class="flex flex-col xs:flex-row items-center gap-2 order-1 sm:order-2">
+                    <p class="text-xs sm:text-sm text-gray-700 flex items-center justify-center whitespace-nowrap">
+                        Desarrollado con
+                        <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i>
+                        por:
+                    </p>
+                    <a href="https://sattlink.com" target="_blank" class="transition-transform hover:scale-105 duration-300">
+                        <img src="{{asset('/img/Sattlink-logo-nuevo.png')}}" alt="Sattlink Internet" class="h-6 sm:h-8">
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        <!-- Botón para volver arriba (ajustado margin bottom para no solapar con la barra de créditos) -->
-        <a href="#inicio" id="back-to-top" class="fixed bottom-16 right-6 bg-pri-green hover:bg-green-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <!-- Botón para volver arriba (ajustado para pantallas móviles y no solapar con la barra de créditos) -->
+        <a href="#inicio" id="back-to-top" class="fixed bottom-20 sm:bottom-16 right-6 bg-pri-green hover:bg-green-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
             <i class="fas fa-arrow-up"></i>
         </a>
 
