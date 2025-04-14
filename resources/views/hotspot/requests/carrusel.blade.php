@@ -301,6 +301,8 @@
     </a>
 
     <script>
+        let countdown = {{$hotspot->tiempo_carrusel?$hotspot->tiempo_carrusel:15}};
+
         // Imágenes y contenido de campaña
         const campaignSlides = [{
                 image: "{{ asset('images/campaign/seguridad.jpg') }}",
@@ -414,7 +416,8 @@
         }, 5000);
 
         // Cuenta regresiva
-        let countdown = 15;
+       //let countdown = 15;
+       let countdown = {{$hotspot->tiempo_carrusel?$hotspot->tiempo_carrusel:15}};
         const countdownElement = document.getElementById("countdown");
         const continueButton = document.getElementById("continue-btn");
 
