@@ -279,12 +279,12 @@
                 campaña.</p>
             <!-- Firma adicional de Sattlink en el footer -->
             <div class="mt-2 pt-2 border-t border-gray-300">
-                <a href="#" class="text-blue-600 hover:underline flex items-center justify-center">
+                <a href="https://sattlink.com" class="text-blue-600 hover:underline flex items-center justify-center">
                     <i class="fas fa-globe text-xs mr-1"></i> Sattlink.com
                 </a>
             </div>
         </div>
-        <a id="autotrial" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+        <a id="autotrial"  href="<?php echo $linkloginonly; ?>?dst=<?php echo $linkorigesc; ?>&username=T-<?php echo $macesc; ?>"
             style="display: none;">
             Activar prueba
         </a>

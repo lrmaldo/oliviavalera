@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Ruta para el formulario de hotspot
-Route::post('/formulario', [FormularioController::class, 'apiStore']);
+//Route::post('/formulario', [FormularioController::class, 'apiStore']);
