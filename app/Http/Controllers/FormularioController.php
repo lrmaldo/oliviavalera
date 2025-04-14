@@ -40,7 +40,7 @@ class FormularioController extends Controller
         'tipo_dispositivo',
         'tipo_sistema',
         'navegador' */
-      #  dd($request->all());
+        #  dd($request->all());
         /* ejemplo
         array:8 [ // app\Http\Controllers\FormularioController.php:43
   "_token" => "7kuhoE0RTDtAtnHsvA6GUwyh9snZOorAvbRhq3ML"
@@ -55,8 +55,8 @@ class FormularioController extends Controller
     1 => "pavimentacion"
   ]
 ] */
- $agent = new Agent();
-        $deviceType = $agent->device();
+        $agent = new Agent();
+
         Formulario::create([
             'nombre'           => $request->input('nombre'),
             'telefono'         => $request->input('telefono'),
@@ -64,7 +64,7 @@ class FormularioController extends Controller
             'localidad'        => $request->input('localidad'),
             'necesidades'      => json_encode($request->input('necesidades')),
             'mac_address'      => $request->input('mac_address'),
-            'tipo_dispositivo' => $deviceType === 'Tablet' ? 'Tablet' : ($agent->isMobile() ? 'Movil' : 'Escritorio'),
+            'tipo_dispositivo' => $agent->isTablet() ? 'Tablet' : ($agent->isMobile() ? 'Movil' : 'Escritorio'),
             'tipo_sistema'     => $agent->platform(),
             'navegador'        => $agent->browser(),
         ]);
