@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WiFi Gratuito - Campaña PRI Tierra Blanca</title>
     <script src="/js/3.4.16.js"></script>
-    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
     <style>
         .bg-pri-green {
             background-color: #006847;
