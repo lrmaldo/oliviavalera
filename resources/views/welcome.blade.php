@@ -706,7 +706,7 @@
 
                 <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-500 text-sm mb-4 md:mb-0">
-                        &copy; 2024 Campaña Olivia Valera. Todos los derechos reservados.
+                        &copy; 2025 Campaña Olivia Valera. Todos los derechos reservados.
                     </p>
                     <div class="flex flex-wrap justify-center">
                         <a href="#" class="text-gray-500 hover:text-white mx-2 text-sm transition duration-300">Política de privacidad</a>
@@ -718,19 +718,24 @@
         </footer>
 
         <!-- Nueva barra de créditos flotante -->
-        <div class="credits-bar py-2 px-4 border-t border-gray-200">
-            <div class="container mx-auto flex justify-between items-center">
+        <div class="credits-bar py-4 px-4 border-t border-gray-200 bg-white">
+            <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2">
                 <div class="text-xs text-gray-500">
-                    &copy; 2024 Campaña Olivia Valera
+                    &copy; 2025 Campaña Olivia Valera
                 </div>
-                <div class="flex items-center sattlink-logo-container">
-                    <p class="text-sm text-gray-700 mr-3 hidden sm:block">Desarrollado con <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i> por:</p>
+                <div class="flex flex-col sm:flex-row items-center gap-2">
+                    <p class="text-sm text-gray-700 flex items-center">
+                        <span class="hidden sm:inline">Desarrollado con</span>
+                        <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i>
+                        <span class="hidden sm:inline">por:</span>
+                    </p>
                     <a href="https://sattlink.com" target="_blank" class="transition-opacity hover:opacity-80">
                         <img src="{{asset('/img/Sattlink-logo-nuevo.png')}}" alt="Sattlink Internet" class="h-8">
                     </a>
                 </div>
             </div>
         </div>
+
 
         <!-- Botón para volver arriba (ajustado margin bottom para no solapar con la barra de créditos) -->
         <a href="#inicio" id="back-to-top" class="fixed bottom-16 right-6 bg-pri-green hover:bg-green-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
