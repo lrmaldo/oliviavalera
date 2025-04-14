@@ -37,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('hotspot/preview', function () {
     return view('hotspot.preview.index');
 })->name('hotspot.preview.index');
+/* carrusel */
+Route::get('/preview/carrusel', function () {
+    return view('hotspot.preview.carrusel');
+})->name('carrusel.preview.index');
 
 // Usar una ruta API para evitar el middleware web completo que incluye CSRF
 Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);

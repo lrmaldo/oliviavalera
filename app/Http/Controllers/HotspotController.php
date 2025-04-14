@@ -17,11 +17,11 @@ class HotspotController extends Controller
         $hotspot = Hotspot::where('name', 'like', '%' . $nombre . '%')->first();
         #dd($request->all(), Hotspot::all(), $hotspot);
         if (!$hotspot) {
-        return abort(404, 'Hotspot not found');
+        return abort(404, 'Hotspot no encontrado');
         }
         if(Formulario::where('mac_address', $macAddress)->exists()){
 
-         return view('hotspot.requests.index',compact('hotspot'));
+         return view('hotspot.requests.carrusel',compact('hotspot'));
         }
 
         return view('hotspot.requests.formulario',compact('request'));
