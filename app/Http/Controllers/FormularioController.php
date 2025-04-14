@@ -55,6 +55,7 @@ class FormularioController extends Controller
     1 => "pavimentacion"
   ]
 ] */
+ $agent = new Agent();
         Formulario::create([
             'nombre'           => $request->input('nombre'),
             'telefono'         => $request->input('telefono'),
@@ -62,9 +63,9 @@ class FormularioController extends Controller
             'localidad'        => $request->input('localidad'),
             'necesidades'      => json_encode($request->input('necesidades')),
             'mac_address'      => $request->input('mac_address'),
-            'tipo_dispositivo' => Agent::device(),
-            'tipo_sistema'     => Agent::platform(),
-            'navegador'        => Agent::browser(),
+            'tipo_dispositivo' => $agent->isTablet() ? 'Tablet' : ($agent->isMobile() ? 'Movil' : 'Escritorio'),
+            'tipo_sistema'     => $agent->platform(),
+            'navegador'        => $agent->browser(),
         ]);
 
         // Guardar los datos en la base de datos o realizar otras acciones
