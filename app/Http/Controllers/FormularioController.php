@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formulario;
 use Illuminate\Http\Request;
-use Jenssegers\Agent\Facades\Agent;
+use Jenssegers\Agent\Agent;
 
 class FormularioController extends Controller
 {
