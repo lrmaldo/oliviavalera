@@ -301,7 +301,7 @@
     </a>
 
     <script>
-        let countdown = {{$hotspot->tiempo_carrusel?$hotspot->tiempo_carrusel:15}};
+
 
         // Imágenes y contenido de campaña
         const campaignSlides = [{
