@@ -106,6 +106,24 @@
                     bottom: 70px;
                 }
             }
+
+            /* Mejoras de responsividad para prevenir scroll horizontal */
+            .container {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            @media (max-width: 640px) {
+                .container {
+                    padding-left: 0.75rem;
+                    padding-right: 0.75rem;
+                }
+            }
         </style>
     </head>
     <body class="antialiased hero-pattern">
@@ -717,39 +735,21 @@
             </div>
         </footer>
 
-        <!-- Nueva barra de créditos flotante -->
-        <div class="credits-bar py-4 px-4 border-t border-gray-200 bg-white">
-            <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-2">
-                <div class="text-xs text-gray-500">
-                    &copy; 2025 Campaña Olivia Valera
-                </div>
-                <div class="flex flex-col sm:flex-row items-center gap-2">
-                    <p class="text-sm text-gray-700 flex items-center">
-                        <span class="hidden sm:inline">Desarrollado con</span>
-                        <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i>
-                        <span class="hidden sm:inline">por:</span>
-                    </p>
-                    <a href="https://sattlink.com" target="_blank" class="transition-opacity hover:opacity-80">
-                        <img src="{{asset('/img/Sattlink-logo-nuevo.png')}}" alt="Sattlink Internet" class="h-8">
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <!-- Versión mejorada de la barra de créditos flotante - más responsive -->
-        <div class="credits-bar fixed bottom-0 left-0 right-0 py-3 sm:py-2 px-4 border-t border-gray-200 bg-white shadow-lg z-50">
-            <div class="container mx-auto flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-2 sm:space-y-0">
-                <div class="text-xs text-gray-500 order-2 sm:order-1">
+        <div class="credits-bar fixed bottom-0 left-0 right-0 py-3 sm:py-2 px-4 border-t border-gray-200 bg-white shadow-lg z-50 overflow-hidden">
+            <div class="container mx-auto max-w-full flex flex-col sm:flex-row justify-center sm:justify-between items-center space-y-2 sm:space-y-0 flex-wrap">
+                <div class="text-xs text-gray-500 order-2 sm:order-1 w-full sm:w-auto text-center sm:text-left">
                     &copy; 2025 Campaña Olivia Valera
                 </div>
-                <div class="flex flex-col xs:flex-row items-center gap-2 order-1 sm:order-2">
+                <div class="flex flex-col xs:flex-row items-center gap-2 order-1 sm:order-2 w-full sm:w-auto flex-wrap justify-center">
                     <p class="text-xs sm:text-sm text-gray-700 flex items-center justify-center whitespace-nowrap">
                         Desarrollado con
                         <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i>
                         por:
                     </p>
-                    <a href="https://sattlink.com" target="_blank" class="transition-transform hover:scale-105 duration-300">
-                        <img src="{{asset('/img/Sattlink-logo-nuevo.png')}}" alt="Sattlink Internet" class="h-6 sm:h-8">
+                    <a href="https://sattlink.com" target="_blank" class="transition-transform hover:scale-105 duration-300 max-w-[180px] overflow-hidden">
+                        <img src="{{asset('/img/Sattlink-logo-nuevo.png')}}" alt="Sattlink Internet" class="h-6 sm:h-8 w-auto object-contain">
                     </a>
                 </div>
             </div>
