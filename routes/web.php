@@ -9,6 +9,10 @@ use App\Http\Middleware\VerifyCsrfToken;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+/* planila */
+Route::get('/planilla', function () {
+    return view('planilla');
+})->name('plantilla');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

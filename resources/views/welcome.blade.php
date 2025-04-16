@@ -25,8 +25,8 @@
                 theme: {
                     extend: {
                         colors: {
-                            'pri-green': '#006847',
                             'pri-red': '#CE1126',
+                            'pri-green': '#006847',
                             'pri-gold': '#D4AF37',
                         },
                         fontFamily: {
@@ -45,7 +45,7 @@
 
             .hero-pattern {
                 background-color: #ffffff;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23006847' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CE1126' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             }
 
             .text-shadow {
@@ -53,7 +53,7 @@
             }
 
             .mexico-flag-gradient {
-                background: linear-gradient(90deg, #006847 33.3%, white 33.3%, white 66.6%, #CE1126 66.6%);
+                background: linear-gradient(90deg, #CE1126 33.3%, white 33.3%, white 66.6%, #006847 66.6%);
             }
 
             @keyframes float {
@@ -137,25 +137,26 @@
                             <div class="h-10 w-10 bg-pri-green rounded-full flex items-center justify-center mr-2">
                                 <span class="text-white font-bold text-xs">PRI</span>
                             </div>
-                            <span class="text-pri-green font-bold text-lg">Olivia Valera</span>
+                            <span class="text-pri-red font-bold text-lg">Olivia Valera</span>
                         </div>
                     </div>
 
                     <!-- Menú navegación escritorio -->
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-center space-x-4">
-                            <a href="#inicio" class="text-gray-800 hover:text-pri-green px-3 py-2 rounded-md text-sm font-medium transition-all">Inicio</a>
-                            <a href="#candidata" class="text-gray-800 hover:text-pri-green px-3 py-2 rounded-md text-sm font-medium transition-all">Candidata</a>
-                            <a href="#propuestas" class="text-gray-800 hover:text-pri-green px-3 py-2 rounded-md text-sm font-medium transition-all">Propuestas</a>
-                            <a href="#galeria" class="text-gray-800 hover:text-pri-green px-3 py-2 rounded-md text-sm font-medium transition-all">Galería</a>
-                            <a href="#contacto" class="text-gray-800 hover:text-pri-green px-3 py-2 rounded-md text-sm font-medium transition-all">Contacto</a>
-                            <a href="#" class="bg-pri-red hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all">¡Únete!</a>
+                            <a href="#inicio" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Inicio</a>
+                            <a href="#candidata" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Candidata</a>
+                            <a href="{{ url('/planilla') }}" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Planilla</a>
+                            <a href="#propuestas" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Propuestas</a>
+                            <a href="#galeria" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Galería</a>
+                            <a href="#contacto" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Contacto</a>
+                            <a href="#" class="bg-pri-green hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all">¡Únete!</a>
                         </div>
                     </div>
 
                     <!-- Botón menú móvil -->
                     <div class="md:hidden">
-                        <button type="button" class="text-gray-800 hover:text-pri-green" id="mobile-menu-button">
+                        <button type="button" class="text-gray-800 hover:text-pri-red" id="mobile-menu-button">
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
@@ -167,12 +168,13 @@
             <!-- Menú móvil -->
             <div class="hidden md:hidden bg-white border-t border-gray-200" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#inicio" class="text-gray-800 hover:text-pri-green block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
-                    <a href="#candidata" class="text-gray-800 hover:text-pri-green block px-3 py-2 rounded-md text-base font-medium">Candidata</a>
-                    <a href="#propuestas" class="text-gray-800 hover:text-pri-green block px-3 py-2 rounded-md text-base font-medium">Propuestas</a>
-                    <a href="#galeria" class="text-gray-800 hover:text-pri-green block px-3 py-2 rounded-md text-base font-medium">Galería</a>
-                    <a href="#contacto" class="text-gray-800 hover:text-pri-green block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
-                    <a href="#" class="bg-pri-red hover:bg-red-700 text-white block px-3 py-2 rounded-md text-base font-medium mt-2">¡Únete!</a>
+                    <a href="#inicio" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                    <a href="#candidata" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Candidata</a>
+                    <a href="{{ url('/planilla') }}" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Planilla</a>
+                    <a href="#propuestas" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Propuestas</a>
+                    <a href="#galeria" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Galería</a>
+                    <a href="#contacto" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                    <a href="#" class="bg-pri-green hover:bg-green-700 text-white block px-3 py-2 rounded-md text-base font-medium mt-2">¡Únete!</a>
                 </div>
             </div>
         </nav>
@@ -185,10 +187,10 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pri-green leading-tight mb-4">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pri-red leading-tight mb-4">
                             Olivia Valera
                         </h1>
-                        <h2 class="text-2xl md:text-3xl font-semibold text-pri-red mb-6">
+                        <h2 class="text-2xl md:text-3xl font-semibold text-pri-green mb-6">
                             Candidata a Presidenta Municipal
                         </h2>
                         <p class="text-xl text-gray-700 mb-8">
@@ -198,10 +200,10 @@
                             Juntos construiremos un mejor futuro para nuestro municipio, con trabajo, honestidad y compromiso.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="#propuestas" class="bg-pri-green hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            <a href="#propuestas" class="bg-pri-red hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
                                 Conoce mis propuestas
                             </a>
-                            <a href="#contacto" class="border-2 border-pri-green text-pri-green hover:bg-pri-green hover:text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            <a href="#contacto" class="border-2 border-pri-red text-pri-red hover:bg-pri-red hover:text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
                                 Contáctame
                             </a>
                         </div>
@@ -209,8 +211,8 @@
                     <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
                         <div class="relative">
                             <!-- Imagen candidata (placeholder) -->
-                            <div class="w-64 h-64 md:w-80 md:h-80 bg-pri-green rounded-full overflow-hidden border-4 border-white shadow-xl float-animation">
-                                <img src="https://placehold.co/400x400/006847/FFFFFF?text=Olivia+Valera" alt="Olivia Valera" class="w-full h-full object-cover">
+                            <div class="w-64 h-64 md:w-80 md:h-80 bg-pri-red rounded-full overflow-hidden border-4 border-white shadow-xl float-animation">
+                                <img src="https://placehold.co/400x400/CE1126/FFFFFF?text=Olivia+Valera" alt="Olivia Valera" class="w-full h-full object-cover">
                             </div>
                             <!-- Emblema PRI -->
                             <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-2 shadow-lg">
@@ -225,7 +227,7 @@
         </section>
 
         <!-- Contador estadísticas -->
-        <section class="py-16 bg-pri-green text-white">
+        <section class="py-16 bg-pri-red text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
@@ -252,19 +254,19 @@
         <section id="candidata" class="py-20 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-pri-green mb-4" data-aos="fade-up">Conoce a Olivia Valera</h2>
-                    <div class="w-20 h-1 bg-pri-red mx-auto"></div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-pri-red mb-4" data-aos="fade-up">Conoce a Olivia Valera</h2>
+                    <div class="w-20 h-1 bg-pri-green mx-auto"></div>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-2/5 mb-10 md:mb-0" data-aos="fade-right">
                         <div class="relative">
-                            <img src="https://placehold.co/600x800/006847/FFFFFF?text=Olivia+Valera" alt="Olivia Valera" class="w-full rounded-lg shadow-xl">
+                            <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Olivia+Valera" alt="Olivia Valera" class="w-full rounded-lg shadow-xl">
                             <div class="absolute inset-0 border-4 border-pri-gold rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
                         </div>
                     </div>
                     <div class="md:w-3/5 md:pl-16" data-aos="fade-left">
-                        <h3 class="text-2xl font-semibold mb-6 text-pri-red">Comprometida con Tierra Blanca</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-pri-green">Comprometida con Tierra Blanca</h3>
                         <p class="text-gray-700 mb-6 leading-relaxed">
                             Con una sólida trayectoria de servicio público y compromiso con nuestra comunidad, Olivia Valera ha dedicado su vida a trabajar por las familias de Tierra Blanca.
                         </p>
@@ -275,7 +277,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-3">
-                                    <div class="bg-pri-green rounded-full p-2">
+                                    <div class="bg-pri-red rounded-full p-2">
                                         <i class="fas fa-graduation-cap text-white"></i>
                                     </div>
                                 </div>
@@ -286,7 +288,7 @@
                             </div>
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-3">
-                                    <div class="bg-pri-green rounded-full p-2">
+                                    <div class="bg-pri-red rounded-full p-2">
                                         <i class="fas fa-briefcase text-white"></i>
                                     </div>
                                 </div>
@@ -297,7 +299,7 @@
                             </div>
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-3">
-                                    <div class="bg-pri-green rounded-full p-2">
+                                    <div class="bg-pri-red rounded-full p-2">
                                         <i class="fas fa-award text-white"></i>
                                     </div>
                                 </div>
@@ -308,7 +310,7 @@
                             </div>
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-3">
-                                    <div class="bg-pri-green rounded-full p-2">
+                                    <div class="bg-pri-red rounded-full p-2">
                                         <i class="fas fa-heart text-white"></i>
                                     </div>
                                 </div>
@@ -319,7 +321,7 @@
                             </div>
                         </div>
 
-                        <a href="#" class="inline-block bg-pri-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        <a href="#" class="inline-block bg-pri-green hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
                             Conoce más sobre mi trayectoria
                         </a>
                     </div>
@@ -328,8 +330,8 @@
         </section>
 
         <!-- Banner Frase -->
-        <section class="relative py-24 bg-fixed bg-center bg-cover parallax" style="background-image: url('https://placehold.co/1920x600/006847/FFFFFF?text=Tierra+Blanca')">
-            <div class="absolute inset-0 bg-pri-green bg-opacity-80"></div>
+        <section class="relative py-24 bg-fixed bg-center bg-cover parallax" style="background-image: url('https://placehold.co/1920x600/CE1126/FFFFFF?text=Tierra+Blanca')">
+            <div class="absolute inset-0 bg-pri-red bg-opacity-80"></div>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="max-w-3xl mx-auto text-center text-white" data-aos="zoom-in">
                     <i class="fas fa-quote-left text-4xl mb-6 text-pri-gold opacity-50"></i>
@@ -346,36 +348,36 @@
         <section id="propuestas" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-pri-green mb-4" data-aos="fade-up">Mis Propuestas</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-pri-red mb-4" data-aos="fade-up">Mis Propuestas</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                         Compromisos claros para transformar nuestro municipio y mejorar la calidad de vida de todos los ciudadanos.
                     </p>
-                    <div class="w-20 h-1 bg-pri-red mx-auto mt-4"></div>
+                    <div class="w-20 h-1 bg-pri-green mx-auto mt-4"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Propuesta 1 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-shield-alt text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Seguridad Ciudadana</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Seguridad Ciudadana</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Implementaremos un sistema integral de seguridad con tecnología de punta y mayor capacitación policial.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Modernización del cuerpo policial</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Sistema de videovigilancia municipal</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Programa de prevención del delito</span>
                                 </li>
                             </ul>
@@ -384,26 +386,26 @@
 
                     <!-- Propuesta 2 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-briefcase-medical text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Salud y Bienestar</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Salud y Bienestar</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Mejoraremos la infraestructura y servicios de salud para garantizar atención médica de calidad.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Rehabilitación de centros de salud</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Brigadas médicas en zonas rurales</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Programa municipal de salud preventiva</span>
                                 </li>
                             </ul>
@@ -412,26 +414,26 @@
 
                     <!-- Propuesta 3 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-graduation-cap text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Educación</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Educación</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Impulsaremos la calidad educativa con mejores escuelas y oportunidades para nuestros jóvenes.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Rehabilitación de escuelas públicas</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Becas municipales de excelencia</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Programa de apoyo tecnológico escolar</span>
                                 </li>
                             </ul>
@@ -440,26 +442,26 @@
 
                     <!-- Propuesta 4 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="400">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-road text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Infraestructura</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Infraestructura</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Desarrollaremos obras públicas que mejoren la movilidad y los servicios básicos del municipio.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Pavimentación de calles y avenidas</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Mejora del sistema de agua potable</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Renovación del alumbrado público</span>
                                 </li>
                             </ul>
@@ -468,26 +470,26 @@
 
                     <!-- Propuesta 5 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="500">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-coins text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Economía Local</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Economía Local</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Apoyaremos a emprendedores y comerciantes locales para fortalecer la economía de Tierra Blanca.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Incubadora municipal de negocios</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Feria del empleo trimestral</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Modernización de mercados municipales</span>
                                 </li>
                             </ul>
@@ -496,26 +498,26 @@
 
                     <!-- Propuesta 6 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105" data-aos="fade-up" data-aos-delay="600">
-                        <div class="h-2 bg-pri-green"></div>
+                        <div class="h-2 bg-pri-red"></div>
                         <div class="p-6">
-                            <div class="bg-pri-green rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
+                            <div class="bg-pri-red rounded-full w-14 h-14 flex items-center justify-center mb-4 mx-auto">
                                 <i class="fas fa-leaf text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-center text-pri-green">Medio Ambiente</h3>
+                            <h3 class="text-xl font-bold mb-3 text-center text-pri-red">Medio Ambiente</h3>
                             <p class="text-gray-600 text-center mb-4">
                                 Crearemos políticas sustentables para preservar y mejorar nuestros recursos naturales.
                             </p>
                             <ul class="space-y-2 mb-6">
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Programa de reforestación municipal</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Mejora del sistema de recolección de basura</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <i class="fas fa-check text-pri-red mt-1 mr-2"></i>
+                                    <i class="fas fa-check text-pri-green mt-1 mr-2"></i>
                                     <span class="text-gray-700">Creación de parques ecológicos</span>
                                 </li>
                             </ul>
@@ -524,7 +526,7 @@
                 </div>
 
                 <div class="text-center mt-12">
-                    <a href="#" class="inline-block bg-pri-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-aos="zoom-in">
+                    <a href="#" class="inline-block bg-pri-green hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-aos="zoom-in">
                         Descarga mi Plan Completo
                     </a>
                 </div>
@@ -535,37 +537,37 @@
         <section id="galeria" class="py-20 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-pri-green mb-4" data-aos="fade-up">En Acción por Tierra Blanca</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-pri-red mb-4" data-aos="fade-up">En Acción por Tierra Blanca</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                         Recorriendo cada rincón de nuestro municipio, escuchando y trabajando por ti.
                     </p>
-                    <div class="w-20 h-1 bg-pri-red mx-auto mt-4"></div>
+                    <div class="w-20 h-1 bg-pri-green mx-auto mt-4"></div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Imágenes (placeholders) -->
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Recorrido" alt="Recorrido" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Recorrido" alt="Recorrido" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Reunión" alt="Reunión" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Reunión" alt="Reunión" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Evento" alt="Evento" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Evento" alt="Evento" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Colonia" alt="Colonia" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Colonia" alt="Colonia" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Proyecto" alt="Proyecto" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Proyecto" alt="Proyecto" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="https://placehold.co/600x400/006847/FFFFFF?text=Ciudadanos" alt="Ciudadanos" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
+                        <img src="https://placehold.co/600x400/CE1126/FFFFFF?text=Ciudadanos" alt="Ciudadanos" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
                     </div>
                 </div>
 
                 <div class="text-center mt-12">
-                    <a href="#" class="inline-block bg-pri-green hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-aos="zoom-in">
+                    <a href="#" class="inline-block bg-pri-red hover:bg-red-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105" data-aos="zoom-in">
                         Ver más fotos
                     </a>
                 </div>
@@ -576,11 +578,11 @@
         <section id="contacto" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-pri-green mb-4" data-aos="fade-up">Contacto</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-pri-red mb-4" data-aos="fade-up">Contacto</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                         Estamos para escucharte. Comparte tus ideas y propuestas para mejorar Tierra Blanca.
                     </p>
-                    <div class="w-20 h-1 bg-pri-red mx-auto mt-4"></div>
+                    <div class="w-20 h-1 bg-pri-green mx-auto mt-4"></div>
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-10">
@@ -602,7 +604,7 @@
                                 <label for="mensaje" class="block text-gray-700 font-medium mb-2">Mensaje</label>
                                 <textarea id="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-pri-green transition-colors"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-pri-green hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            <button type="submit" class="w-full bg-pri-red hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
                                 Enviar mensaje
                             </button>
                         </form>
@@ -610,11 +612,11 @@
 
                     <div class="lg:w-1/2" data-aos="fade-left">
                         <div class="bg-white p-8 rounded-lg shadow-lg h-full">
-                            <h3 class="text-2xl font-semibold mb-6 text-pri-green">Información de contacto</h3>
+                            <h3 class="text-2xl font-semibold mb-6 text-pri-red">Información de contacto</h3>
 
                             <div class="space-y-6">
                                 <div class="flex items-start">
-                                    <div class="flex-shrink-0 bg-pri-green p-3 rounded-lg mr-4">
+                                    <div class="flex-shrink-0 bg-pri-red p-3 rounded-lg mr-4">
                                         <i class="fas fa-map-marker-alt text-white"></i>
                                     </div>
                                     <div>
@@ -624,7 +626,7 @@
                                 </div>
 
                                 <div class="flex items-start">
-                                    <div class="flex-shrink-0 bg-pri-green p-3 rounded-lg mr-4">
+                                    <div class="flex-shrink-0 bg-pri-red p-3 rounded-lg mr-4">
                                         <i class="fas fa-phone text-white"></i>
                                     </div>
                                     <div>
@@ -634,7 +636,7 @@
                                 </div>
 
                                 <div class="flex items-start">
-                                    <div class="flex-shrink-0 bg-pri-green p-3 rounded-lg mr-4">
+                                    <div class="flex-shrink-0 bg-pri-red p-3 rounded-lg mr-4">
                                         <i class="fas fa-envelope text-white"></i>
                                     </div>
                                     <div>
@@ -646,16 +648,16 @@
                                 <div class="pt-6">
                                     <h4 class="font-semibold mb-3">Redes sociales</h4>
                                     <div class="flex space-x-4">
-                                        <a href="#" class="bg-pri-green hover:bg-green-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                        <a href="#" class="bg-pri-red hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
-                                        <a href="#" class="bg-pri-green hover:bg-green-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                        <a href="#" class="bg-pri-red hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
                                             <i class="fab fa-twitter"></i>
                                         </a>
-                                        <a href="#" class="bg-pri-green hover:bg-green-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                        <a href="#" class="bg-pri-red hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                        <a href="#" class="bg-pri-green hover:bg-green-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                        <a href="#" class="bg-pri-red hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
                                             <i class="fab fa-youtube"></i>
                                         </a>
                                     </div>
@@ -715,7 +717,7 @@
                         </p>
                         <form class="flex">
                             <input type="email" placeholder="Tu correo electrónico" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
-                            <button type="submit" class="bg-pri-red hover:bg-red-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                            <button type="submit" class="bg-pri-green hover:bg-green-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
@@ -745,7 +747,7 @@
                 <div class="flex flex-col xs:flex-row items-center gap-2 order-1 sm:order-2 w-full sm:w-auto flex-wrap justify-center">
                     <p class="text-xs sm:text-sm text-gray-700 flex items-center justify-center whitespace-nowrap">
                         Desarrollado con
-                        <i class="fas fa-heart text-pri-red animate-pulse mx-1"></i>
+                        <i class="fas fa-heart text-pri-green animate-pulse mx-1"></i>
                         por:
                     </p>
                     <a href="https://sattlink.com" target="_blank" class="transition-transform hover:scale-105 duration-300 max-w-[180px] overflow-hidden">
@@ -756,7 +758,7 @@
         </div>
 
         <!-- Botón para volver arriba (ajustado para pantallas móviles y no solapar con la barra de créditos) -->
-        <a href="#inicio" id="back-to-top" class="fixed bottom-20 sm:bottom-16 right-6 bg-pri-green hover:bg-green-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <a href="#inicio" id="back-to-top" class="fixed bottom-20 sm:bottom-16 right-6 bg-pri-red hover:bg-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
             <i class="fas fa-arrow-up"></i>
         </a>
 
