@@ -185,6 +185,18 @@
             <div class="absolute top-0 left-0 right-0 h-2 mexico-flag-gradient"></div>
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Logotipo oficial de la campaña -->
+                <div class="flex justify-center mb-10" data-aos="fade-down">
+                    <div class="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+                        <img
+                            src="{{asset('/img/pri-eslogan.jpeg')}}"
+                            alt="Tú PRImero - Campaña Olivia Valera"
+                            class="w-auto max-h-[60px] sm:max-h-[80px] md:max-h-[100px] mx-auto object-contain"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-r from-pri-red/10 to-pri-green/10 opacity-40 hover:opacity-0 transition-opacity duration-300"></div>
+                    </div>
+                </div>
+
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pri-red leading-tight mb-4">

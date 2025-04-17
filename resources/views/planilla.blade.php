@@ -45,7 +45,7 @@
 
             .hero-pattern {
                 background-color: #ffffff;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CE1126' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CE1126' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             }
 
             .mexico-flag-gradient {
@@ -226,6 +226,18 @@
             <div class="absolute top-0 left-0 right-0 h-2 mexico-flag-gradient"></div>
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Logotipo oficial de la campaña -->
+                <div class="flex justify-center mb-8" data-aos="fade-down">
+                    <div class="relative overflow-hidden rounded-lg shadow-md transition-transform hover:shadow-lg">
+                        <img
+                            src="{{asset('/img/pri-eslogan.jpeg')}}"
+                            alt="Tú PRImero - Campaña Olivia Valera"
+                            class="w-auto max-h-[60px] sm:max-h-[80px] md:max-h-[100px] mx-auto object-contain"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-r from-pri-red/10 to-pri-green/10 opacity-40 hover:opacity-0 transition-opacity duration-300"></div>
+                    </div>
+                </div>
+
                 <div class="text-center mb-8" data-aos="fade-up">
                     <h1 class="text-4xl md:text-5xl font-bold text-pri-red mb-4">Nuestra Planilla</h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -249,7 +261,7 @@
                             </div>
                         </div>
                         <div class="md:w-2/3 text-center md:text-left">
-                            <h2 class="text-2xl font-bold text-pri-red mb-1">Olivia Valera González</h2>
+                            <h2 class="text-2xl font-bold text-pri-red mb-1">Olivia Estela Valera Ortega</h2>
                             <p class="text-lg text-pri-green font-semibold mb-4">Candidata a la Presidencia Municipal</p>
                             <p class="text-gray-700 mb-4">
                                 Liderando un equipo comprometido con el progreso y bienestar de Tierra Blanca. Juntos construiremos el municipio que merecemos.
@@ -280,11 +292,11 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=José+Ramírez" alt="José Ramírez" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Kesia+Salomon" alt="José Ramírez" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
-                                        <p class="text-sm mb-3">Licenciado en Derecho con más de 12 años de experiencia en administración pública municipal y especialista en derecho administrativo.</p>
+                                        <p class="text-sm mb-3">Licenciada en Administración con maestría en Gestión Pública. Experta en transparencia y rendición de cuentas con amplia experiencia en auditoría gubernamental y procesos administrativos municipales.</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs text-white/80">9 años de experiencia</span>
                                             <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
@@ -299,7 +311,7 @@
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">José Ramírez González</h3>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Kesia Salomon Rodríguez</h3>
                             <p class="text-gray-600 mb-4">Síndico Municipal</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
@@ -323,7 +335,7 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Mariana+López" alt="Mariana López" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Enrique+Hernández" alt="Enrique Hernández Susunaga" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
@@ -338,12 +350,12 @@
                                 </div>
                             </div>
                             <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
-                                Regidora 1
+                                Regidor 1
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">Mariana López Vega</h3>
-                            <p class="text-gray-600 mb-4">Regidora - Comisión de Hacienda</p>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Enrique Hernández Susunaga</h3>
+                            <p class="text-gray-600 mb-4">Regidor - Comisión de Hacienda</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
                                     <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
@@ -366,11 +378,11 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Carlos+Mendoza" alt="Carlos Mendoza" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Ana+Yareth" alt="Ana Yareth Sarmiento Muñoz" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
-                                        <p class="text-sm mb-3">Ingeniero Civil con especialidad en desarrollo urbano sustentable. Ha dirigido proyectos de infraestructura en varias ciudades de Veracruz.</p>
+                                        <p class="text-sm mb-3">Ingeniera Civil con especialidad en desarrollo urbano sustentable. Ha dirigido proyectos de infraestructura en varias ciudades de Veracruz.</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs text-white/80">15 años de experiencia</span>
                                             <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
@@ -381,12 +393,12 @@
                                 </div>
                             </div>
                             <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
-                                Regidor 2
+                                Regidora 2
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">Carlos Mendoza Fernández</h3>
-                            <p class="text-gray-600 mb-4">Regidor - Comisión de Obras Públicas</p>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Ana Yareth Sarmiento Muñoz</h3>
+                            <p class="text-gray-600 mb-4">Regidora - Comisión de Obras Públicas</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
                                     <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
@@ -409,11 +421,11 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Laura+Sánchez" alt="Laura Sánchez" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Alejandro+Romero" alt="Alejandro Romero Salomón" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
-                                        <p class="text-sm mb-3">Maestra con doctorado en Educación. Ha coordinado diversos programas educativos y culturales a nivel estatal y federal.</p>
+                                        <p class="text-sm mb-3">Maestro con doctorado en Educación. Ha coordinado diversos programas educativos y culturales a nivel estatal y federal.</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs text-white/80">10 años de experiencia</span>
                                             <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
@@ -424,12 +436,12 @@
                                 </div>
                             </div>
                             <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
-                                Regidora 3
+                                Regidor 3
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">Laura Sánchez Martínez</h3>
-                            <p class="text-gray-600 mb-4">Regidora - Comisión de Educación</p>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Alejandro Romero Salomón</h3>
+                            <p class="text-gray-600 mb-4">Regidor - Comisión de Educación</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
                                     <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
@@ -452,11 +464,11 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Miguel+Torres" alt="Miguel Torres" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Verónica+Rosas" alt="Verónica Rosas Castillo" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
-                                        <p class="text-sm mb-3">Administrador de Empresas y emprendedor social. Ha desarrollado programas de apoyo a pequeños productores en la región.</p>
+                                        <p class="text-sm mb-3">Administradora de Empresas y emprendedora social. Ha desarrollado programas de apoyo a pequeños productores en la región.</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs text-white/80">8 años de experiencia</span>
                                             <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
@@ -467,12 +479,12 @@
                                 </div>
                             </div>
                             <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
-                                Regidor 4
+                                Regidora 4
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">Miguel Torres Ramírez</h3>
-                            <p class="text-gray-600 mb-4">Regidor - Comisión de Desarrollo Rural</p>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Verónica Rosas Castillo</h3>
+                            <p class="text-gray-600 mb-4">Regidora - Comisión de Desarrollo Rural</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
                                     <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
@@ -495,11 +507,11 @@
                         <div class="relative">
                             <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
                             <div class="img-container h-64">
-                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Ana+Gutiérrez" alt="Ana Gutiérrez" class="w-full h-full object-cover">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Jesús+Alberto" alt="Jesús Alberto Rodriguez Duran" class="w-full h-full object-cover">
 
                                 <div class="absolute inset-0 flex flex-col justify-end img-overlay">
                                     <div class="p-6 text-white overlay-content">
-                                        <p class="text-sm mb-3">Abogada especialista en derecho municipal. Ha liderado iniciativas para la atención de grupos vulnerables en diversos municipios.</p>
+                                        <p class="text-sm mb-3">Abogado especialista en derecho municipal. Ha liderado iniciativas para la atención de grupos vulnerables en diversos municipios.</p>
                                         <div class="flex justify-between items-center">
                                             <span class="text-xs text-white/80">12 años de experiencia</span>
                                             <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
@@ -510,12 +522,141 @@
                                 </div>
                             </div>
                             <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
-                                Regidora 5
+                                Regidor 5
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-pri-red mb-1">Ana Gutiérrez Ortiz</h3>
-                            <p class="text-gray-600 mb-4">Regidora - Comisión de Asuntos Sociales</p>
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Jesús Alberto Rodriguez Duran</h3>
+                            <p class="text-gray-600 mb-4">Regidor - Comisión de Asuntos Sociales</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-3">
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="inline-flex items-center bg-pri-green hover:bg-green-700 text-white px-3 py-1.5 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-file-pdf mr-1.5"></i>
+                                    <span>Descargar CV</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 7 -->
+                    <div class="member-card bg-white rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="700">
+                        <div class="relative">
+                            <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
+                            <div class="img-container h-64">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=María+Ana+Lilia" alt="María Ana Lilia Pavón Utrera" class="w-full h-full object-cover">
+
+                                <div class="absolute inset-0 flex flex-col justify-end img-overlay">
+                                    <div class="p-6 text-white overlay-content">
+                                        <p class="text-sm mb-3">Licenciada en Ciencias Políticas con especialidad en políticas públicas. Ha colaborado en diversos programas de desarrollo social a nivel municipal.</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-xs text-white/80">9 años de experiencia</span>
+                                            <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
+                                                <i class="fas fa-eye mr-1"></i> Detalles
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
+                                Regidora 6
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pri-red mb-1">María Ana Lilia Pavón Utrera</h3>
+                            <p class="text-gray-600 mb-4">Regidora - Comisión de Desarrollo Social</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-3">
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="inline-flex items-center bg-pri-green hover:bg-green-700 text-white px-3 py-1.5 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-file-pdf mr-1.5"></i>
+                                    <span>Descargar CV</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 8 -->
+                    <div class="member-card bg-white rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="800">
+                        <div class="relative">
+                            <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
+                            <div class="img-container h-64">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Felipe+Vázquez" alt="Felipe Vázquez Lara" class="w-full h-full object-cover">
+
+                                <div class="absolute inset-0 flex flex-col justify-end img-overlay">
+                                    <div class="p-6 text-white overlay-content">
+                                        <p class="text-sm mb-3">Ingeniero Agrónomo con experiencia en desarrollo rural sustentable. Ha coordinado proyectos de mejoramiento agrícola en la región.</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-xs text-white/80">11 años de experiencia</span>
+                                            <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
+                                                <i class="fas fa-eye mr-1"></i> Detalles
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
+                                Regidor 7
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Felipe Vázquez Lara</h3>
+                            <p class="text-gray-600 mb-4">Regidor - Comisión de Fomento Agropecuario</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-3">
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="inline-flex items-center bg-pri-green hover:bg-green-700 text-white px-3 py-1.5 rounded-lg text-sm transition-colors">
+                                    <i class="fas fa-file-pdf mr-1.5"></i>
+                                    <span>Descargar CV</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 9 -->
+                    <div class="member-card bg-white rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="900">
+                        <div class="relative">
+                            <div class="h-2 bg-pri-green absolute top-0 left-0 w-full z-10"></div>
+                            <div class="img-container h-64">
+                                <img src="https://placehold.co/600x800/CE1126/FFFFFF?text=Araly+Delfin" alt="Araly Delfin Rios" class="w-full h-full object-cover">
+
+                                <div class="absolute inset-0 flex flex-col justify-end img-overlay">
+                                    <div class="p-6 text-white overlay-content">
+                                        <p class="text-sm mb-3">Licenciada en Derecho con especialidad en derechos humanos. Ha trabajado en la defensa de los derechos de grupos vulnerables.</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-xs text-white/80">8 años de experiencia</span>
+                                            <a href="#" class="cv-button inline-flex items-center text-white hover:text-pri-gold text-sm font-medium">
+                                                <i class="fas fa-eye mr-1"></i> Detalles
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-3 right-3 bg-pri-red text-white text-xs font-bold px-3 py-1 rounded-full z-20">
+                                Regidora 8
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pri-red mb-1">Araly Delfin Rios</h3>
+                            <p class="text-gray-600 mb-4">Regidora - Comisión de Equidad de Género</p>
                             <div class="flex justify-between items-center">
                                 <div class="flex space-x-3">
                                     <a href="#" class="text-gray-400 hover:text-pri-red transition-colors">
@@ -557,7 +698,7 @@
                     <a href="#" class="inline-flex items-center bg-white text-pri-green hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
                         <span>¡Quiero participar!</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m0-5H6" />
                         </svg>
                     </a>
                 </div>
