@@ -21,7 +21,12 @@ class ImportColoniasTierraBlanca extends Command
      */
     public function handle()
     {
-        $token = 'pruebas'; // Sustituye por tu token real
+
+        $token = config('copomex.token');
+        if (!$token) {
+            $this->error('Token de API no configurado. Por favor, verifica tu archivo .env.');
+            return;
+        }
         $url = "https://api.copomex.com/query/get_colonia_por_municipio/Tierra%20Blanca?token=$token";
 
         $response = Http::get($url);
