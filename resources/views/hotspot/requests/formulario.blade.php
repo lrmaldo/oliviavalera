@@ -257,7 +257,7 @@
                 <!-- Campo adicional para "Otra localidad" - inicialmente oculto -->
                 <div id="otra-localidad-container" class="mb-4 hidden">
                     <label for="otra_localidad" class="block text-gray-700 text-sm font-medium mb-1">Especifica tu localidad</label>
-                    <input type="text" id="otra_localidad" name="otra_localidad" class="w-full p-3 border border-gray-300 rounded-lg input-focus-effect transition-all duration-200"
+                    <input type="text" id="otra_localidad" name="otra_localidad" class="w-full p-3 border border-gray-300 rounded-lg  transition-all duration-200"
                         placeholder="Escribe el nombre de tu localidad"
                         minlength="3">
                     <p class="error-message" id="otra_localidad-error">Por favor especifica el nombre de tu localidad.</p>
