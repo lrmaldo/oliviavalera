@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('telefono', 10);
             $table->string('colonia');
+            /* otra_colonia */
+            $table->string('otra_colonia')->nullable(); // Para el caso de que la colonia no esté en la lista
+            /* otra_localidad */
+            $table->string('otra_localidad')->nullable(); // Para el caso de que la localidad no esté en la lista
             $table->string('localidad');
             $table->json('necesidades')->nullable(); // Para guardar múltiples opciones
             $table->string('mac_address')->nullable(); // MAC del dispositivo (si la puedes capturar)
@@ -25,6 +29,7 @@ return new class extends Migration
             $table->string('tipo_sistema')->nullable(); // Tipo de sistema (si la puedes capturar)
             // navegador
             $table->string('navegador')->nullable(); // Navegador (si la puedes capturar)
+
             $table->timestamps();
             $table->softDeletes(); // Para manejar eliminaciones suaves
         });

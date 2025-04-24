@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Formulario;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
+use App\Models\Colonia;
+use App\Models\Localidad;
 
 class FormularioController extends Controller
 {
@@ -82,5 +84,53 @@ class FormularioController extends Controller
             'data'    => $request->all(),
         ])->setStatusCode(201, 'Created');
 
+    }
+
+    /**
+     * Obtiene las colonias para el select con búsqueda
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function obtenerColonias(Request $request)
+    {
+        $search = $request->query('q', '');
+
+        $query = Colonia::query();
+
+        // Si hay un término de búsqueda, aplicar filtro
+        if (!empty($search)) {
+            $query->where('nombre', 'LIKE', "%{$search}%");
+        }
+
+        $colonias = $query->orderBy('nombre')
+                         ->take(15)
+                         ->get(['nombre']);
+
+        return response()->json($colonias);
+    }
+
+    /**
+     * Obtiene las localidades para el select con búsqueda
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function obtenerLocalidades(Request $request)
+    {
+        $search = $request->query('q', '');
+
+        $query = Localidad::query();
+
+        // Si hay un término de búsqueda, aplicar filtro
+        if (!empty($search)) {
+            $query->where('nombre', 'LIKE', "%{$search}%");
+        }
+
+        $localidades = $query->orderBy('nombre')
+                           ->take(15)
+                           ->get(['nombre']);
+
+        return response()->json($localidades);
     }
 }

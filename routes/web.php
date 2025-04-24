@@ -49,4 +49,6 @@ Route::get('/preview/carrusel', function () {
 // Usar una ruta API para evitar el middleware web completo que incluye CSRF
 Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 'handleRequest']);
 Route::post('/formulario', [FormularioController::class, 'apiStore']);
+Route::get('/obtener-colonias', [App\Http\Controllers\FormularioController::class, 'obtenerColonias'])->name('obtener.colonias');
+Route::get('/obtener-localidades', [App\Http\Controllers\FormularioController::class, 'obtenerLocalidades'])->name('obtener.localidades');
 require __DIR__.'/auth.php';

@@ -7,6 +7,8 @@
     <title>WiFi Gratuito - Campaña PRI Tierra Blanca</title>
     <script src="/js/3.4.16.js"></script>
     <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .bg-pri-green {
             background-color: #006847;
@@ -101,6 +103,43 @@
         .input-error:focus {
             box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
         }
+
+        /* Estilos para Select2 */
+        .select2-container--default .select2-selection--single {
+            height: 48px;
+            padding: 0.5rem;
+            border-color: #e5e7eb;
+            border-radius: 0.5rem;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 46px;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 28px;
+            color: #4b5563;
+        }
+
+        .select2-container--default .select2-results__option--highlighted[aria-selected] {
+            background-color: #006847;
+        }
+
+        .select2-dropdown {
+            border-color: #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Estilo adicional para los contenedores de Select2 */
+        .select2-container {
+            width: 100% !important;
+        }
+
+        /* Estilo para la animación del campo adicional */
+        .field-appear {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
     </style>
 </head>
 @php
@@ -191,17 +230,37 @@
                 </div>
 
                 <div class="mb-4">
-                    <input type="text" id="colonia" name="colonia"
-                        class="w-full p-3 border border-gray-300 rounded-lg input-focus-effect transition-all duration-200"
-                        placeholder="Colonia" required minlength="3">
-                    <p class="error-message" id="colonia-error">Ingrese el nombre de su colonia.</p>
+                    <select id="colonia" name="colonia" class="w-full select2-colonia" required>
+                        <option value="">Seleccione una colonia</option>
+                    </select>
+                    <p class="error-message" id="colonia-error">Seleccione una colonia válida.</p>
                 </div>
 
+                <!-- Campo adicional para "Otra colonia" - inicialmente oculto -->
+                <div id="otra-colonia-container" class="mb-4 hidden">
+                    <label for="otra_colonia" class="block text-gray-700 text-sm font-medium mb-1">Especifica tu colonia</label>
+                    <input type="text" id="otra_colonia" name="otra_colonia" class="w-full p-3 border border-gray-300 rounded-lg input-focus-effect transition-all duration-200"
+                        placeholder="Escribe el nombre de tu colonia"
+                        minlength="3">
+                    <p class="error-message" id="otra_colonia-error">Por favor especifica el nombre de tu colonia.</p>
+                </div>
+
+                <!-- Reemplazar el input de localidad por un select2 -->
                 <div class="mb-4">
-                    <input type="text" id="localidad" name="localidad"
-                        class="w-full p-3 border border-gray-300 rounded-lg input-focus-effect transition-all duration-200"
-                        placeholder="Localidad" required minlength="3">
-                    <p class="error-message" id="localidad-error">Ingrese el nombre de su localidad.</p>
+                    <label for="localidad" class="block text-gray-700 text-sm font-medium mb-1">Localidad o Comunidad</label>
+                    <select id="localidad" name="localidad" class="w-full select2-localidad" required>
+                        <option value="">Seleccione una localidad</option>
+                    </select>
+                    <p class="error-message" id="localidad-error">Seleccione una localidad válida.</p>
+                </div>
+
+                <!-- Campo adicional para "Otra localidad" - inicialmente oculto -->
+                <div id="otra-localidad-container" class="mb-4 hidden">
+                    <label for="otra_localidad" class="block text-gray-700 text-sm font-medium mb-1">Especifica tu localidad</label>
+                    <input type="text" id="otra_localidad" name="otra_localidad" class="w-full p-3 border border-gray-300 rounded-lg input-focus-effect transition-all duration-200"
+                        placeholder="Escribe el nombre de tu localidad"
+                        minlength="3">
+                    <p class="error-message" id="otra_localidad-error">Por favor especifica el nombre de tu localidad.</p>
                 </div>
 
                 <h3 class="mt-7 font-semibold text-pri-green border-b-2 border-pri-green pb-2 text-lg">¿Qué necesidades
@@ -290,6 +349,8 @@
         </a>
     </div>
 
+    <!-- Añadir Select2 JS antes del script existente -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         // Función para obtener parámetros de la URL y rellenar campos ocultos
         function getUrlParameters() {
@@ -716,6 +777,284 @@
 
             // Ejecutar verificación inicial
             checkFormValidity();
+
+            // Inicializar Select2 para colonia
+            $('#colonia').select2({
+                placeholder: 'Buscar colonia...',
+                width: '100%',
+                ajax: {
+                    url: '{{ route("obtener.colonias") }}',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term || '', // término de búsqueda o vacío para obtener todos
+                            page: params.page || 1
+                        };
+                    },
+                    processResults: function (data) {
+                        // Mapear los resultados normales
+                        const results = data.map(function(item) {
+                            return {
+                                id: item.nombre,
+                                text: item.nombre
+                            };
+                        });
+
+                        // Agregar la opción "Otra / No está en la lista"
+                        if (results.length === 0 || !results.some(r => r.id === 'otra')) {
+                            results.push({
+                                id: 'otra',
+                                text: 'Otra / No está en la lista'
+                            });
+                        }
+
+                        return { results: results };
+                    },
+                    cache: true
+                },
+                minimumInputLength: 0 // Permite mostrar todas las opciones sin necesidad de escribir
+            });
+
+            // Cargar todas las colonias al iniciar
+            $('#colonia').select2('open');
+            $('#colonia').select2('close');
+
+            // Manejar el evento de cambio para la opción "Otra"
+            $('#colonia').on('change', function() {
+                const selectedValue = $(this).val();
+                if (selectedValue === 'otra') {
+                    $('#otra-colonia-container').removeClass('hidden').addClass('animate-fadeIn');
+                    // Hacer que el campo sea requerido cuando se muestra
+                    $('#otra_colonia').attr('required', true);
+                } else {
+                    $('#otra-colonia-container').addClass('hidden');
+                    // Quitar el atributo required cuando no está visible
+                    $('#otra_colonia').removeAttr('required');
+                }
+                validateSelect(this);
+            });
+
+            // Validación para el campo "Otra colonia"
+            $('#otra_colonia').on('input', function() {
+                if ($('#colonia').val() === 'otra') {
+                    validateOtraColonia(this);
+                }
+            });
+
+            // Función para validar el select de colonia
+            function validateSelect(select) {
+                const errorMsgEl = document.getElementById(`${select.id}-error`);
+
+                if (!select.value) {
+                    $(select).next('.select2-container').addClass('border-red-500');
+                    errorMsgEl.style.display = 'block';
+                    return false;
+                } else {
+                    $(select).next('.select2-container').removeClass('border-red-500');
+                    errorMsgEl.style.display = 'none';
+                    return true;
+                }
+
+                // Actualizar estado del formulario
+                checkFormValidity();
+            }
+
+            // Función para validar el campo de texto para otra colonia
+            function validateOtraColonia(input) {
+                const errorMsgEl = document.getElementById(`${input.id}-error`);
+
+                if (input.value.trim().length < 3) {
+                    input.classList.add('input-error');
+                    input.classList.remove('input-valid');
+                    errorMsgEl.style.display = 'block';
+                    return false;
+                } else {
+                    input.classList.remove('input-error');
+                    input.classList.add('input-valid');
+                    errorMsgEl.style.display = 'none';
+                    return true;
+                }
+
+                // Actualizar estado del formulario
+                checkFormValidity();
+            }
+
+            // Modificar la función checkFormValidity para incluir la validación del select y del campo adicional
+            const originalCheckFormValidity = checkFormValidity;
+            checkFormValidity = function() {
+                // ...existing code...
+
+                // Validar el select de colonia
+                if ($('#colonia').val() === '') {
+                    allFieldsValid = false;
+                    allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra colonia si está visible
+                if ($('#colonia').val() === 'otra') {
+                    const otraColoniaInput = document.getElementById('otra_colonia');
+                    if (otraColoniaInput.classList.contains('input-error') || otraColoniaInput.value.trim() === '') {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // ...existing code...
+            };
+
+            // Modificar la validación del formulario al enviar
+            const formElement = document.querySelector("form");
+            const originalSubmitHandler = formElement.onsubmit;
+            formElement.onsubmit = function(event) {
+                event.preventDefault();
+
+                // ...existing code...
+
+                // Validar el select de colonia
+                if (!validateSelect(document.getElementById('colonia'))) {
+                    isFormValid = false;
+                }
+
+                // Si "Otra" está seleccionada, validar el campo adicional
+                if (document.getElementById('colonia').value === 'otra') {
+                    if (!validateOtraColonia(document.getElementById('otra_colonia'))) {
+                        isFormValid = false;
+                    }
+                }
+
+                // ...existing code...
+            };
+
+            // Inicializar Select2 para localidad
+            $('#localidad').select2({
+                placeholder: 'Buscar localidad...',
+                width: '100%',
+                ajax: {
+                    url: '{{ route("obtener.localidades") }}',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term || '', // término de búsqueda o vacío para obtener todos
+                            page: params.page || 1
+                        };
+                    },
+                    processResults: function (data) {
+                        // Mapear los resultados normales
+                        const results = data.map(function(item) {
+                            return {
+                                id: item.nombre,
+                                text: item.nombre
+                            };
+                        });
+
+                        // Agregar la opción "Otra / No está en la lista"
+                        if (results.length === 0 || !results.some(r => r.id === 'otra')) {
+                            results.push({
+                                id: 'otra',
+                                text: 'Otra / No está en la lista'
+                            });
+                        }
+
+                        return { results: results };
+                    },
+                    cache: true
+                },
+                minimumInputLength: 0 // Permite mostrar todas las opciones sin necesidad de escribir
+            });
+
+            // Cargar todas las localidades al iniciar
+            $('#localidad').select2('open');
+            $('#localidad').select2('close');
+
+            // Manejar el evento de cambio para la opción "Otra localidad"
+            $('#localidad').on('change', function() {
+                const selectedValue = $(this).val();
+                if (selectedValue === 'otra') {
+                    $('#otra-localidad-container').removeClass('hidden').addClass('field-appear');
+                    // Hacer que el campo sea requerido cuando se muestra
+                    $('#otra_localidad').attr('required', true);
+                } else {
+                    $('#otra-localidad-container').addClass('hidden');
+                    // Quitar el atributo required cuando no está visible
+                    $('#otra_localidad').removeAttr('required');
+                }
+                validateSelect(this);
+            });
+
+            // Validación para el campo "Otra localidad"
+            $('#otra_localidad').on('input', function() {
+                if ($('#localidad').val() === 'otra') {
+                    validateOtraLocalidad(this);
+                }
+            });
+
+            // Función para validar el campo adicional de localidad
+            function validateOtraLocalidad(input) {
+                const errorMsgEl = document.getElementById(`${input.id}-error`);
+
+                if (input.value.trim().length < 3) {
+                    input.classList.add('input-error');
+                    input.classList.remove('input-valid');
+                    errorMsgEl.style.display = 'block';
+                    return false;
+                } else {
+                    input.classList.remove('input-error');
+                    input.classList.add('input-valid');
+                    errorMsgEl.style.display = 'none';
+                    return true;
+                }
+
+                // Actualizar estado del formulario
+                checkFormValidity();
+            }
+
+            // Modificar la función checkFormValidity para incluir la validación del select de localidad
+            const originalCheckFormValidity = checkFormValidity;
+            checkFormValidity = function() {
+                // ...existing code...
+
+                // Validar el select de localidad
+                if ($('#localidad').val() === '') {
+                    allFieldsValid = false;
+                    allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra localidad si está visible
+                if ($('#localidad').val() === 'otra') {
+                    const otraLocalidadInput = document.getElementById('otra_localidad');
+                    if (otraLocalidadInput.classList.contains('input-error') || otraLocalidadInput.value.trim() === '') {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // ...existing code...
+            };
+
+            // Modificar la validación del formulario al enviar
+            const formElement = document.querySelector("form");
+            const originalSubmitHandler = formElement.onsubmit;
+            formElement.onsubmit = function(event) {
+                event.preventDefault();
+
+                // ...existing code...
+
+                // Validar el select de localidad
+                if (!validateSelect(document.getElementById('localidad'))) {
+                    isFormValid = false;
+                }
+
+                // Si "Otra localidad" está seleccionada, validar el campo adicional
+                if (document.getElementById('localidad').value === 'otra') {
+                    if (!validateOtraLocalidad(document.getElementById('otra_localidad'))) {
+                        isFormValid = false;
+                    }
+                }
+
+                // ...existing code...
+            };
         });
     </script>
 </body>
