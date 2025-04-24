@@ -197,14 +197,25 @@
 
         <div class="p-7">
             <div class="flex justify-center mb-5">
-                <div
-                    class="rounded-full bg-pri-green p-2 inline-block shadow-lg transform transition-transform hover:scale-105 duration-300">
-                    <img src="https://placehold.co/80x80/006847/FFFFFF?text=PRI" alt="Candidato PRI"
-                        class="h-24 w-24 rounded-full object-cover border-4 border-white">
+                <div class="relative overflow-hidden transform transition-transform hover:scale-102 duration-300 shadow-lg border-4 border-pri-green max-w-xs">
+                    <!-- Franja tricolor en la parte superior de la imagen -->
+                    <div class="absolute top-0 left-0 right-0 flex h-3 z-10">
+                        <div class="w-1/3 bg-pri-green"></div>
+                        <div class="w-1/3 bg-white"></div>
+                        <div class="w-1/3 bg-pri-red"></div>
+                    </div>
+
+                    <img src="{{ asset('/img/logo_olivia.jpeg') }}" alt="Olivia Valera - Candidata PRI"
+                        class="w-full h-auto object-cover mx-auto">
+
+                    <!-- Etiqueta con nombre de la candidata -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-pri-green to-pri-red p-2 text-white text-center">
+                        <span class="font-bold text-sm sm:text-base">Olivia Valera</span>
+                    </div>
                 </div>
             </div>
 
-            <h2 class="text-2xl font-bold text-center text-pri-green mb-5">¡Juntos por Tierra Blanca, Veracruz!</h2>
+            <h2 class="text-2xl font-bold text-center text-pri-green mb-5">¡Juntos con Olivia por Tierra Blanca, Veracruz!</h2>
 
             <form class="mt-6 space-y-4" id="wifi-form" method="post"  name="login">
                 @csrf
