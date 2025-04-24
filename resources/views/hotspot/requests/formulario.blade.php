@@ -205,7 +205,7 @@
                         <div class="w-1/3 bg-pri-red"></div>
                     </div>
 
-                    <img src="{{ asset('/img/logo_olivia.jpeg') }}" alt="Olivia Valera - Candidata PRI"
+                    <img src="{{ asset('/img/logo-olivia.jpeg') }}" alt="Olivia Valera - Candidata PRI"
                         class="w-full h-auto object-cover mx-auto">
 
                     <!-- Etiqueta con nombre de la candidata -->
