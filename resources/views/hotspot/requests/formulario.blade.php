@@ -208,10 +208,10 @@
                     <img src="{{ asset('/img/logo-olivia.jpeg') }}" alt="Olivia Valera - Candidata PRI"
                         class="w-full h-auto object-cover mx-auto">
 
-                    <!-- Etiqueta con nombre de la candidata -->
+                  {{--   <!-- Etiqueta con nombre de la candidata -->
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-pri-green to-pri-red p-2 text-white text-center">
                         <span class="font-bold text-sm sm:text-base">Olivia Valera</span>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
