@@ -348,9 +348,10 @@
             Activar prueba
         </a>
     </div>
-
+    {{-- add jquery --}}
+    <script src="/js/jquery-3.6.0.min.js"></script>
     <!-- Añadir Select2 JS antes del script existente -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="/select2-4.1.0-rc.0/select2-4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         // Función para obtener parámetros de la URL y rellenar campos ocultos
         function getUrlParameters() {
@@ -506,7 +507,7 @@
                 }
 
                 // Verificar estado del formulario completo
-                checkFormValidity();
+               // checkFormValidity();
 
                 return isValid;
             }
