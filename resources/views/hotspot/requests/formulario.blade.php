@@ -861,10 +861,6 @@
                 minimumInputLength: 0 // Permite mostrar todas las opciones sin necesidad de escribir
             });
 
-            // Cargar todas las colonias al iniciar
-            $('#colonia').select2('open');
-            $('#colonia').select2('close');
-
             // Manejar el evento de cambio para la opción "Otra"
             $('#colonia').on('change', function() {
                 const selectedValue = $(this).val();
@@ -1155,10 +1151,6 @@
                 },
                 minimumInputLength: 0 // Permite mostrar todas las opciones sin necesidad de escribir
             });
-
-            // Cargar todas las localidades al iniciar
-            $('#localidad').select2('open');
-            $('#localidad').select2('close');
 
             // Manejar el evento de cambio para la opción "Otra localidad"
             $('#localidad').on('change', function() {
