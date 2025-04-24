@@ -921,8 +921,18 @@
 
             // Modificar la validación del formulario al enviar
             const formElement = document.querySelector("form");
+
+            // Variable para evitar envíos duplicados
+            let isSubmitting = false;
+
             formElement.onsubmit = function(event) {
                 event.preventDefault();
+
+                // Evitar envíos duplicados
+                if (isSubmitting) {
+                    console.log('Formulario ya está siendo enviado. Evitando duplicación.');
+                    return false;
+                }
 
                 // Validar todos los campos antes de procesar
                 const inputs = document.querySelectorAll('#wifi-form input[required]');
@@ -976,6 +986,9 @@
                     return;
                 }
 
+                // Marcar que el formulario está en proceso de envío
+                isSubmitting = true;
+
                 // Mostrar spinner en el botón de envío
                 const submitBtn = document.getElementById("submit-btn");
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...';
@@ -983,10 +996,28 @@
 
                 // Recopilar datos del formulario
                 const formData = new FormData(document.getElementById('wifi-form'));
+
+                // Revisar si hay que agregar los campos opcionales explícitamente
+                if ($('#colonia').val() === 'otra' && $('#otra_colonia').val()) {
+                    // Asegurar que otra_colonia se incluye (incluso si no tiene el atributo 'required')
+                    formData.set('otra_colonia', $('#otra_colonia').val());
+                }
+
+                if ($('#localidad').val() === 'otra' && $('#otra_localidad').val()) {
+                    // Asegurar que otra_localidad se incluye (incluso si no tiene el atributo 'required')
+                    formData.set('otra_localidad', $('#otra_localidad').val());
+                }
+
                 @if(isset($mac_address) && !empty($mac_address))
                     const mac = "{{ $mac_address }}";
                     formData.append('mac_address', mac);
                 @endif
+
+                // Para depuración: mostrar qué campos se envían
+                console.log('Datos a enviar:');
+                for (let pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
 
                 // Enviar datos mediante fetch
                 fetch('/formulario', {
@@ -998,7 +1029,7 @@
                 })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Error en la respuesta del servidor');
+                        throw new Error('Error en la respuesta del servidor: ' + response.status);
                     }
                     return response.json();
                 })
@@ -1024,6 +1055,9 @@
                     // Restaurar el botón en caso de error
                     submitBtn.innerHTML = '<span>Conectarme ahora</span><i class="fas fa-arrow-right ml-2"></i>';
                     submitBtn.disabled = false;
+
+                    // Reiniciar la bandera de envío
+                    isSubmitting = false;
 
                     // Mostrar mensaje de error
                     alert('Hubo un problema al procesar su solicitud. Por favor, intente nuevamente.');
