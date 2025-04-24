@@ -437,8 +437,16 @@
 
                 // Verificar si todos los campos requeridos son válidos
                 let allFieldsValid = true;
+                let allFieldsHaveValues = true;
+
                 inputs.forEach(input => {
-                    if (input.classList.contains('input-error') || input.value.trim() === '') {
+                    // Validar que el campo no esté vacío
+                    if (input.value.trim() === '') {
+                        allFieldsHaveValues = false;
+                    }
+
+                    // Validar que no tenga errores
+                    if (input.classList.contains('input-error')) {
                         allFieldsValid = false;
                     }
                 });
@@ -450,8 +458,38 @@
                     checkboxError.classList.add('hidden');
                 }
 
-                // Habilitar/deshabilitar botón según validación
-                if (allFieldsValid && atLeastOneChecked) {
+                // Validar el select de colonia
+                if ($('#colonia').val() === '') {
+                    allFieldsValid = false;
+                    allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra colonia si está visible
+                if ($('#colonia').val() === 'otra') {
+                    const otraColoniaInput = document.getElementById('otra_colonia');
+                    if (otraColoniaInput && (otraColoniaInput.classList.contains('input-error') || otraColoniaInput.value.trim() === '')) {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // Validar el select de localidad
+                if ($('#localidad').val() === '') {
+                    allFieldsValid = false;
+                    allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra localidad si está visible
+                if ($('#localidad').val() === 'otra') {
+                    const otraLocalidadInput = document.getElementById('otra_localidad');
+                    if (otraLocalidadInput && (otraLocalidadInput.classList.contains('input-error') || otraLocalidadInput.value.trim() === '')) {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // Habilitar/deshabilitar botón según validación completa
+                if (allFieldsValid && allFieldsHaveValues && atLeastOneChecked) {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
                     submitBtn.classList.add('bg-pri-red', 'hover:bg-red-700');
@@ -461,11 +499,6 @@
                     submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
                 }
             }
-
-            // Agregar listener a todos los checkboxes
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', checkFormValidity);
-            });
 
             // Modificar el validateInput para que también verifique el estado del botón
             function validateInput(e) {
@@ -876,15 +909,50 @@
                     errorMsgEl.style.display = 'none';
                     return true;
                 }
+            }
 
-                // Actualizar estado del formulario
-                checkFormValidity();
+            // Función para validar el campo adicional de localidad (reutilizando la misma lógica)
+            function validateOtraLocalidad(input) {
+                return validateOtraColonia(input); // Misma validación
             }
 
             // Modificar la función checkFormValidity para incluir la validación del select y del campo adicional
-            const originalCheckFormValidity = checkFormValidity;
             checkFormValidity = function() {
-                // ...existing code...
+                const inputs = document.querySelectorAll('#wifi-form input[required]');
+                const checkboxes = document.querySelectorAll('.necesidad-checkbox');
+                const submitBtn = document.getElementById('submit-btn');
+                const checkboxError = document.getElementById('checkbox-error');
+
+                // Verificar si al menos un checkbox está marcado
+                let atLeastOneChecked = false;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        atLeastOneChecked = true;
+                    }
+                });
+
+                // Verificar si todos los campos requeridos son válidos
+                let allFieldsValid = true;
+                let allFieldsHaveValues = true;
+
+                inputs.forEach(input => {
+                    // Validar que el campo no esté vacío
+                    if (input.value.trim() === '') {
+                        allFieldsHaveValues = false;
+                    }
+
+                    // Validar que no tenga errores
+                    if (input.classList.contains('input-error')) {
+                        allFieldsValid = false;
+                    }
+                });
+
+                // Mostrar/ocultar mensaje de error de checkboxes
+                if (!atLeastOneChecked) {
+                    checkboxError.classList.remove('hidden');
+                } else {
+                    checkboxError.classList.add('hidden');
+                }
 
                 // Validar el select de colonia
                 if ($('#colonia').val() === '') {
@@ -895,22 +963,61 @@
                 // Validar el campo de otra colonia si está visible
                 if ($('#colonia').val() === 'otra') {
                     const otraColoniaInput = document.getElementById('otra_colonia');
-                    if (otraColoniaInput.classList.contains('input-error') || otraColoniaInput.value.trim() === '') {
+                    if (otraColoniaInput && (otraColoniaInput.classList.contains('input-error') || otraColoniaInput.value.trim() === '')) {
                         allFieldsValid = false;
                         allFieldsHaveValues = false;
                     }
                 }
 
-                // ...existing code...
+                // Validar el select de localidad
+                if ($('#localidad').val() === '') {
+                    allFieldsValid = false;
+                    allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra localidad si está visible
+                if ($('#localidad').val() === 'otra') {
+                    const otraLocalidadInput = document.getElementById('otra_localidad');
+                    if (otraLocalidadInput && (otraLocalidadInput.classList.contains('input-error') || otraLocalidadInput.value.trim() === '')) {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // Habilitar/deshabilitar botón según validación completa
+                if (allFieldsValid && allFieldsHaveValues && atLeastOneChecked) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                    submitBtn.classList.add('bg-pri-red', 'hover:bg-red-700');
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove('bg-pri-red', 'hover:bg-red-700');
+                    submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                }
             };
 
             // Modificar la validación del formulario al enviar
             const formElement = document.querySelector("form");
-            const originalSubmitHandler = formElement.onsubmit;
             formElement.onsubmit = function(event) {
                 event.preventDefault();
 
-                // ...existing code...
+                // Validar todos los campos antes de procesar
+                const inputs = document.querySelectorAll('#wifi-form input[required]');
+                let isFormValid = true;
+
+                inputs.forEach(input => {
+                    // Disparar evento de validación en cada input
+                    const inputEvent = new Event('input', {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    input.dispatchEvent(inputEvent);
+
+                    // Verificar si hay errores de validación
+                    if (input.classList.contains('input-error')) {
+                        isFormValid = false;
+                    }
+                });
 
                 // Validar el select de colonia
                 if (!validateSelect(document.getElementById('colonia'))) {
@@ -924,7 +1031,80 @@
                     }
                 }
 
-                // ...existing code...
+                // Validar el select de localidad
+                if (!validateSelect(document.getElementById('localidad'))) {
+                    isFormValid = false;
+                }
+
+                // Si "Otra localidad" está seleccionada, validar el campo adicional
+                if (document.getElementById('localidad').value === 'otra') {
+                    if (!validateOtraLocalidad(document.getElementById('otra_localidad'))) {
+                        isFormValid = false;
+                    }
+                }
+
+                // Solo proceder si el formulario es válido
+                if (!isFormValid) {
+                    // Hacer scroll al primer error
+                    const firstError = document.querySelector('.input-error');
+                    if (firstError) {
+                        firstError.focus();
+                    }
+                    return;
+                }
+
+                // Mostrar spinner en el botón de envío
+                const submitBtn = document.getElementById("submit-btn");
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...';
+                submitBtn.disabled = true;
+
+                // Recopilar datos del formulario
+                const formData = new FormData(document.getElementById('wifi-form'));
+                @if(isset($mac_address) && !empty($mac_address))
+                    const mac = "{{ $mac_address }}";
+                    formData.append('mac_address', mac);
+                @endif
+
+                // Enviar datos mediante fetch
+                fetch('/formulario', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Datos enviados correctamente:', data);
+
+                    // Mostrar mensaje de éxito
+                    const voteMessage = document.getElementById("vote-message");
+                    voteMessage.classList.remove("hidden");
+                    voteMessage.style.animation = "fadeIn 0.5s ease-out forwards";
+
+                    // Redirigir al enlace de prueba después de 3 segundos
+                    setTimeout(() => {
+                        const trialLink = document.getElementById('autotrial');
+                        if (trialLink && trialLink.href) {
+                            window.location.href = trialLink.href;
+                        }
+                    }, 3000);
+                })
+                .catch(error => {
+                    console.error('Error al enviar datos:', error);
+
+                    // Restaurar el botón en caso de error
+                    submitBtn.innerHTML = '<span>Conectarme ahora</span><i class="fas fa-arrow-right ml-2"></i>';
+                    submitBtn.disabled = false;
+
+                    // Mostrar mensaje de error
+                    alert('Hubo un problema al procesar su solicitud. Por favor, intente nuevamente.');
+                });
             };
 
             // Inicializar Select2 para localidad
@@ -1011,51 +1191,8 @@
                 checkFormValidity();
             }
 
-            // Modificar la función checkFormValidity para incluir la validación del select de localidad
-            const originalCheckFormValidity = checkFormValidity;
-            checkFormValidity = function() {
-                // ...existing code...
-
-                // Validar el select de localidad
-                if ($('#localidad').val() === '') {
-                    allFieldsValid = false;
-                    allFieldsHaveValues = false;
-                }
-
-                // Validar el campo de otra localidad si está visible
-                if ($('#localidad').val() === 'otra') {
-                    const otraLocalidadInput = document.getElementById('otra_localidad');
-                    if (otraLocalidadInput.classList.contains('input-error') || otraLocalidadInput.value.trim() === '') {
-                        allFieldsValid = false;
-                        allFieldsHaveValues = false;
-                    }
-                }
-
-                // ...existing code...
-            };
-
-            // Modificar la validación del formulario al enviar
-            const formElement = document.querySelector("form");
-            const originalSubmitHandler = formElement.onsubmit;
-            formElement.onsubmit = function(event) {
-                event.preventDefault();
-
-                // ...existing code...
-
-                // Validar el select de localidad
-                if (!validateSelect(document.getElementById('localidad'))) {
-                    isFormValid = false;
-                }
-
-                // Si "Otra localidad" está seleccionada, validar el campo adicional
-                if (document.getElementById('localidad').value === 'otra') {
-                    if (!validateOtraLocalidad(document.getElementById('otra_localidad'))) {
-                        isFormValid = false;
-                    }
-                }
-
-                // ...existing code...
-            };
+            // Ejecutar verificación inicial
+            checkFormValidity();
         });
     </script>
 </body>
