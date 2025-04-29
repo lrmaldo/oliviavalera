@@ -11,7 +11,8 @@ Route::get('/', function () {
 })->name('home');
 /* planila */
 Route::get('/planilla', function () {
-    return view('planilla');
+    abort(404);
+    ##return view('planilla');
 })->name('plantilla');
 
 Route::view('dashboard', 'dashboard')
