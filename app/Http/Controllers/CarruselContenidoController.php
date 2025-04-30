@@ -22,22 +22,25 @@ class CarruselContenidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable|max:1000',
-            'image' => 'required|image|max:2048', // 2MB max
-            'is_active' => 'sometimes|boolean',
+            'titulo' => 'required|max:255',
+            'descripcion' => 'nullable|max:1000',
+            'archivo' => 'required|file|max:20480', // 20MB max
+            'tipo' => 'required|in:imagen,video',
+            'orden' => 'nullable|integer',
+            'activo' => 'sometimes|boolean',
         ]);
 
-        $path = $request->file('image')->store('carrusel', 'public');
+        $path = $request->file('archivo')->store('carrusel', 'public');
 
-        $order = Carrusel_contenido::max('order') + 1;
+        $orden = Carrusel_contenido::max('orden') + 1;
 
         Carrusel_contenido::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'image_path' => $path,
-            'is_active' => $request->has('is_active'),
-            'order' => $order,
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'archivo' => $path,
+            'tipo' => $request->tipo,
+            'orden' => $orden,
+            'activo' => $request->has('activo'),
         ]);
 
         return redirect()->route('carrusel.index')
@@ -57,27 +60,29 @@ class CarruselContenidoController extends Controller
     public function update(Request $request, Carrusel_contenido $carrusel)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable|max:1000',
-            'image' => 'sometimes|image|max:2048', // 2MB max
-            'is_active' => 'sometimes|boolean',
+            'titulo' => 'required|max:255',
+            'descripcion' => 'nullable|max:1000',
+            'archivo' => 'sometimes|file|max:20480', // 20MB max
+            'tipo' => 'required|in:imagen,video',
+            'activo' => 'sometimes|boolean',
         ]);
 
         $data = [
-            'title' => $request->title,
-            'description' => $request->description,
-            'is_active' => $request->has('is_active'),
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'tipo' => $request->tipo,
+            'activo' => $request->has('activo'),
         ];
 
-        if ($request->hasFile('image')) {
-            // Eliminar imagen antigua
-            if ($carrusel->image_path && Storage::disk('public')->exists($carrusel->image_path)) {
-                Storage::disk('public')->delete($carrusel->image_path);
+        if ($request->hasFile('archivo')) {
+            // Eliminar archivo antiguo
+            if ($carrusel->archivo && Storage::disk('public')->exists($carrusel->archivo)) {
+                Storage::disk('public')->delete($carrusel->archivo);
             }
 
-            // Guardar nueva imagen
-            $path = $request->file('image')->store('carrusel', 'public');
-            $data['image_path'] = $path;
+            // Guardar nuevo archivo
+            $path = $request->file('archivo')->store('carrusel', 'public');
+            $data['archivo'] = $path;
         }
 
         $carrusel->update($data);
@@ -86,11 +91,11 @@ class CarruselContenidoController extends Controller
             ->with('message', 'Elemento del carrusel actualizado correctamente.');
     }
 
-    public function destroy(CarruselContenido $carrusel)
+    public function destroy(Carrusel_contenido $carrusel)
     {
-        // Eliminar imagen
-        if ($carrusel->image_path && Storage::disk('public')->exists($carrusel->image_path)) {
-            Storage::disk('public')->delete($carrusel->image_path);
+        // Eliminar archivo
+        if ($carrusel->archivo && Storage::disk('public')->exists($carrusel->archivo)) {
+            Storage::disk('public')->delete($carrusel->archivo);
         }
 
         $carrusel->delete();
@@ -99,15 +104,15 @@ class CarruselContenidoController extends Controller
             ->with('message', 'Elemento del carrusel eliminado correctamente.');
     }
 
-    public function toggleActive(CarruselContenido $carrusel)
+    public function toggleActive(Carrusel_contenido $carrusel)
     {
-        $carrusel->is_active = !$carrusel->is_active;
+        $carrusel->activo = !$carrusel->activo;
         $carrusel->save();
 
         return response()->json([
             'success' => true,
             'message' => 'Estado actualizado correctamente',
-            'is_active' => $carrusel->is_active
+            'activo' => $carrusel->activo
         ]);
     }
 
@@ -116,11 +121,11 @@ class CarruselContenidoController extends Controller
         $request->validate([
             'items' => 'required|array',
             'items.*.id' => 'required|exists:carrusel_contenidos,id',
-            'items.*.order' => 'required|integer|min:0',
+            'items.*.orden' => 'required|integer|min:0',
         ]);
 
         foreach ($request->items as $item) {
-            CarruselContenido::find($item['id'])->update(['order' => $item['order']]);
+            Carrusel_contenido::find($item['id'])->update(['orden' => $item['orden']]);
         }
 
         return response()->json(['success' => true, 'message' => 'Orden actualizado correctamente']);

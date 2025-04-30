@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\HomeController;
+use App\Http\Livewire\Hotspot\ManageHotspots;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Http\Livewire\Hotspot\ManageHotspots;
-use App\Http\Middleware\VerifyCsrfToken;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,13 +15,15 @@ Route::get('/planilla', function () {
     ##return view('planilla');
 })->name('plantilla');
 
-Route::view('dashboard', 'dashboard')
+/* Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('dashboard'); */
 
 // Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {
     // Rutas existentes
+    Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+
     Route::redirect('settings', 'settings/profile');
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
@@ -36,6 +38,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Rutas para hotspots
     Route::get('/hotspots', ManageHotspots::class)->name('hotspots.index');
+    // Ruta para la vista de formularios
+    Route::get('/formularios', function () {
+        return view('formularios');
+    })->name('formularios.index');
 });
 
 // Ruta de vista previa (no requiere autenticación)
@@ -52,4 +58,5 @@ Route::post('/hotspot/request', [App\Http\Controllers\HotspotController::class, 
 Route::post('/formulario', [FormularioController::class, 'apiStore']);
 Route::get('/obtener-colonias', [App\Http\Controllers\FormularioController::class, 'obtenerColonias'])->name('obtener.colonias');
 Route::get('/obtener-localidades', [App\Http\Controllers\FormularioController::class, 'obtenerLocalidades'])->name('obtener.localidades');
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';

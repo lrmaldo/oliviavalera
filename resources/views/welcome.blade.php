@@ -124,6 +124,40 @@
                     padding-right: 0.75rem;
                 }
             }
+
+            @keyframes shine {
+                0% { background-position: -100% 0; }
+                100% { background-position: 200% 0; }
+            }
+
+            .shine-effect {
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                background-size: 200% 100%;
+                animation: shine 2s infinite;
+            }
+
+            @keyframes float-slow {
+                0%, 100% { transform: translateY(0) rotate(0); }
+                50% { transform: translateY(-10px) rotate(2deg); }
+            }
+
+            .float-slow {
+                animation: float-slow 8s ease-in-out infinite;
+            }
+
+            @keyframes pulse-border {
+                0%, 100% { box-shadow: 0 0 0 0 rgba(206, 17, 38, 0.4); }
+                50% { box-shadow: 0 0 0 10px rgba(206, 17, 38, 0); }
+            }
+
+            .pulse-border {
+                animation: pulse-border 2s infinite;
+            }
+
+            .clip-tri-bottom {
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            }
+
         </style>
     </head>
     <body class="antialiased hero-pattern">
@@ -150,7 +184,7 @@
                             <a href="#propuestas" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Propuestas</a>
                             <a href="#galeria" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Galería</a>
                             <a href="#contacto" class="text-gray-800 hover:text-pri-red px-3 py-2 rounded-md text-sm font-medium transition-all">Contacto</a>
-                            <a href="#" class="bg-pri-green hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all">¡Únete!</a>
+                          {{--   <a href="#" class="bg-pri-green hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all">¡Únete!</a> --}}
                         </div>
                     </div>
 
@@ -174,68 +208,130 @@
                     <a href="#propuestas" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Propuestas</a>
                     <a href="#galeria" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Galería</a>
                     <a href="#contacto" class="text-gray-800 hover:text-pri-red block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
-                    <a href="#" class="bg-pri-green hover:bg-green-700 text-white block px-3 py-2 rounded-md text-base font-medium mt-2">¡Únete!</a>
+                   {{--  <a href="#" class="bg-pri-green hover:bg-green-700 text-white block px-3 py-2 rounded-md text-base font-medium mt-2">¡Únete!</a> --}}
                 </div>
             </div>
         </nav>
 
-        <!-- Hero Section -->
-        <section id="inicio" class="relative pt-24 md:pt-32 pb-20 md:pb-32 bg-gradient-to-br from-white to-gray-100">
+        <!-- Hero Section Modernizada -->
+        <section id="inicio" class="relative pt-16 md:pt-20 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white overflow-hidden">
             <!-- Franja tricolor superior -->
             <div class="absolute top-0 left-0 right-0 h-2 mexico-flag-gradient"></div>
 
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Logotipo oficial de la campaña -->
-                <div class="flex justify-center mb-10" data-aos="fade-down">
-                    <div class="relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+            <!-- Patrón de fondo decorativo -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 bg-repeat" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23CE1126\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-20 relative z-10">
+                <!-- Cabecera con eslogan -->
+                <div class="flex justify-center mb-6" data-aos="fade-down" data-aos-duration="800">
+                    <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg rounded-xl p-2 inline-flex">
                         <img
                             src="{{asset('/img/pri-eslogan.jpeg')}}"
                             alt="Tú PRImero - Campaña Olivia Valera"
-                            class="w-auto max-h-[60px] sm:max-h-[80px] md:max-h-[100px] mx-auto object-contain"
+                            class="h-8 sm:h-10 w-auto"
                         >
-                        <div class="absolute inset-0 bg-gradient-to-r from-pri-red/10 to-pri-green/10 opacity-40 hover:opacity-0 transition-opacity duration-300"></div>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pri-red leading-tight mb-4">
-                            Olivia Valera
-                        </h1>
-                        <h2 class="text-2xl md:text-3xl font-semibold text-pri-green mb-6">
-                            Candidata a Presidenta Municipal
-                        </h2>
-                        <p class="text-xl text-gray-700 mb-8">
-                            <span class="font-bold">Tierra Blanca, Veracruz 2025</span>
-                        </p>
-                        <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                            Juntos construiremos un mejor futuro para nuestro municipio, con trabajo, honestidad y compromiso.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#propuestas" class="bg-pri-red hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                                Conoce mis propuestas
-                            </a>
-                            <a href="#contacto" class="border-2 border-pri-red text-pri-red hover:bg-pri-red hover:text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                                Contáctame
-                            </a>
+                <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+                    <!-- Contenido izquierdo -->
+                    <div class="w-full lg:w-3/5" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="p-6 sm:p-8 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-pri-red dark:text-white leading-tight mb-4">
+                                <span class="relative">
+                                    Olivia Valera
+                                    <span class="absolute -bottom-2 left-0 w-1/3 h-1 bg-pri-green rounded-full"></span>
+                                </span>
+                            </h1>
+                            <h2 class="text-2xl md:text-3xl font-semibold text-pri-green dark:text-green-400 mb-6">
+                                Candidata a Presidenta Municipal
+                            </h2>
+                            <p class="text-xl text-gray-700 dark:text-gray-300 mb-8">
+                                <span class="font-bold">Tierra Blanca, Veracruz 2025</span>
+                            </p>
+                            <div class="relative mb-8 pl-4 border-l-4 border-pri-red">
+                                <p class="text-lg text-gray-600 dark:text-gray-400 italic">
+                                    "Juntos construiremos un mejor futuro para nuestro municipio, con trabajo, honestidad y compromiso."
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#propuestas" class="group bg-pri-red hover:bg-red-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-pri-red/50 flex items-center">
+                                    Conoce mis propuestas
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                    </svg>
+                                </a>
+                                <a href="#contacto" class="relative overflow-hidden border-2 border-pri-red text-pri-red hover:text-white font-bold py-3 px-6 rounded-lg group">
+                                    <span class="relative z-10 transition-colors duration-300 group-hover:text-white">Contáctame</span>
+                                    <div class="absolute inset-0 bg-pri-red transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+
+                    <!-- Imagen candidata con efectos avanzados -->
+                    <div class="w-full lg:w-2/5 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
                         <div class="relative">
-                            <!-- Imagen candidata (placeholder) -->
-                            <div class="w-64 h-64 md:w-80 md:h-80 bg-pri-red rounded-full overflow-hidden border-4 border-white shadow-xl float-animation">
-                                <img src="https://placehold.co/400x400/CE1126/FFFFFF?text=Olivia+Valera" alt="Olivia Valera" class="w-full h-full object-cover">
+                            <!-- Círculo rojo principal con la foto de la candidata -->
+                            <div class="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] bg-pri-red rounded-full overflow-hidden border-[6px] border-white dark:border-gray-800 shadow-2xl transition-all duration-500 hover:scale-105 pulse-border">
+                                <img
+                                    src="{{asset('/img/candidata.jpeg')}}"
+                                    alt="Olivia Valera - Candidata PRI"
+                                    class="w-full h-full object-cover object-center"
+                                >
+                                <!-- Overlay del color del partido -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-pri-red/60 to-transparent opacity-60 mix-blend-overlay"></div>
+
+                                <!-- Efecto brillante al pasar el ratón -->
+                                <div class="absolute inset-0 shine-effect opacity-0 hover:opacity-100"></div>
                             </div>
+
                             <!-- Emblema PRI -->
-                            <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-2 shadow-lg">
-                                <div class="w-16 h-16 bg-pri-green rounded-full flex items-center justify-center">
-                                    <span class="text-white font-bold">PRI</span>
+                            <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-full p-2 shadow-xl transform transition-transform duration-500 hover:rotate-12 hover:scale-110">
+                                <div class="w-20 h-20 bg-pri-green rounded-full flex items-center justify-center border-2 border-white dark:border-gray-700">
+                                    <span class="text-white font-bold text-xl">PRI</span>
                                 </div>
+                            </div>
+
+                            <!-- Elementos decorativos flotantes -->
+                            <div class="absolute -top-8 -left-8 w-24 h-24 rounded-full bg-pri-gold/20 dark:bg-pri-gold/10 float-slow"></div>
+                            <div class="absolute top-1/2 -right-12 w-16 h-16 rounded-full bg-pri-green/20 dark:bg-pri-green/10 float-slow" style="animation-delay: 0.5s"></div>
+                            <div class="absolute -bottom-12 left-1/4 w-20 h-20 rounded-full bg-pri-red/20 dark:bg-pri-red/10 float-slow" style="animation-delay: 1s"></div>
+
+                            <!-- Texto decorativo -->
+                            <div class="absolute top-1/4 -left-16 md:-left-24 transform -rotate-90 bg-white/80 dark:bg-gray-800/80 px-3 py-1 rounded-full shadow-lg">
+                                <span class="text-pri-red dark:text-white font-bold text-sm md:text-base">Tu voz</span>
+                            </div>
+                            <div class="absolute bottom-1/4 -right-20 md:-right-28 transform rotate-90 bg-white/80 dark:bg-gray-800/80 px-3 py-1 rounded-full shadow-lg">
+                                <span class="text-pri-green dark:text-green-400 font-bold text-sm md:text-base">Tu futuro</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Iconos de redes sociales flotantes -->
+                <div class="flex justify-center mt-8 md:mt-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 text-pri-red hover:bg-pri-red hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 text-pri-red hover:bg-pri-red hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 text-pri-red hover:bg-pri-red hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 text-pri-red hover:bg-pri-red hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Separador inferior con los colores del PRI -->
+            <div class="w-full h-8 clip-tri-bottom bg-gradient-to-r from-pri-red via-white to-pri-green"></div>
         </section>
 
         <!-- Contador estadísticas -->
