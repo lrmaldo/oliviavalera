@@ -241,7 +241,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <select id="colonia" name="colonia" class="w-full select2-colonia" required>
+                    <select id="colonia" name="colonia" class="w-full select2-colonia">
                         <option value="">Seleccione una colonia</option>
                     </select>
                     <p class="error-message" id="colonia-error">Seleccione una colonia válida.</p>
@@ -259,7 +259,7 @@
                 <!-- Reemplazar el input de localidad por un select2 -->
                 <div class="mb-4">
                     <label for="localidad" class="block text-gray-700 text-sm font-medium mb-1">Localidad o Comunidad</label>
-                    <select id="localidad" name="localidad" class="w-full select2-localidad" required>
+                    <select id="localidad" name="localidad" class="w-full select2-localidad">
                         <option value="">Seleccione una localidad</option>
                     </select>
                     <p class="error-message" id="localidad-error">Seleccione una localidad válida.</p>
@@ -471,8 +471,9 @@
 
                 // Validar el select de colonia
                 if ($('#colonia').val() === '') {
-                    allFieldsValid = false;
-                    allFieldsHaveValues = false;
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
                 }
 
                 // Validar el campo de otra colonia si está visible
@@ -486,8 +487,9 @@
 
                 // Validar el select de localidad
                 if ($('#localidad').val() === '') {
-                    allFieldsValid = false;
-                    allFieldsHaveValues = false;
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
                 }
 
                 // Validar el campo de otra localidad si está visible
@@ -650,6 +652,38 @@
                     checkboxError.classList.add('hidden');
                 }
 
+                // Validar el select de colonia
+                if ($('#colonia').val() === '') {
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra colonia si está visible
+                if ($('#colonia').val() === 'otra') {
+                    const otraColoniaInput = document.getElementById('otra_colonia');
+                    if (otraColoniaInput && (otraColoniaInput.classList.contains('input-error') || otraColoniaInput.value.trim() === '')) {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
+                // Validar el select de localidad
+                if ($('#localidad').val() === '') {
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
+                }
+
+                // Validar el campo de otra localidad si está visible
+                if ($('#localidad').val() === 'otra') {
+                    const otraLocalidadInput = document.getElementById('otra_localidad');
+                    if (otraLocalidadInput && (otraLocalidadInput.classList.contains('input-error') || otraLocalidadInput.value.trim() === '')) {
+                        allFieldsValid = false;
+                        allFieldsHaveValues = false;
+                    }
+                }
+
                 // Habilitar/deshabilitar botón según validación completa
                 if (allFieldsValid && allFieldsHaveValues && atLeastOneChecked) {
                     submitBtn.disabled = false;
@@ -806,7 +840,8 @@
                 if (!select.value) {
                     $(select).next('.select2-container').addClass('border-red-500');
                     errorMsgEl.style.display = 'block';
-                    return false;
+                    // Ya no retorna false ya que no es obligatorio
+                    return true;
                 } else {
                     $(select).next('.select2-container').removeClass('border-red-500');
                     errorMsgEl.style.display = 'none';
@@ -879,8 +914,9 @@
 
                 // Validar el select de colonia
                 if ($('#colonia').val() === '') {
-                    allFieldsValid = false;
-                    allFieldsHaveValues = false;
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
                 }
 
                 // Validar el campo de otra colonia si está visible
@@ -894,8 +930,9 @@
 
                 // Validar el select de localidad
                 if ($('#localidad').val() === '') {
-                    allFieldsValid = false;
-                    allFieldsHaveValues = false;
+                    // Ya no es obligatorio, así que no afecta la validez del formulario
+                    // allFieldsValid = false;
+                    // allFieldsHaveValues = false;
                 }
 
                 // Validar el campo de otra localidad si está visible
@@ -954,7 +991,8 @@
 
                 // Validar el select de colonia
                 if (!validateSelect(document.getElementById('colonia'))) {
-                    isFormValid = false;
+                    // Ya no es requerido, así que no afecta la validez del formulario
+                    // isFormValid = false;
                 }
 
                 // Si "Otra" está seleccionada, validar el campo adicional
@@ -966,7 +1004,8 @@
 
                 // Validar el select de localidad
                 if (!validateSelect(document.getElementById('localidad'))) {
-                    isFormValid = false;
+                    // Ya no es requerido, así que no afecta la validez del formulario
+                    // isFormValid = false;
                 }
 
                 // Si "Otra localidad" está seleccionada, validar el campo adicional
