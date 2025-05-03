@@ -1070,8 +1070,16 @@
                     }
                 })
                 .then(response => {
+                    // Mostrar detalles completos de la respuesta para depuración
+                    console.log('Respuesta del servidor:', response);
+
+                    // Si la respuesta no es ok, capturar el texto de error para análisis
                     if (!response.ok) {
-                        throw new Error('Error en la respuesta del servidor: ' + response.status);
+                        // Intentar obtener el texto del error para más detalles
+                        return response.text().then(text => {
+                            console.error('Error en texto de respuesta:', text);
+                            throw new Error(`Error en la respuesta del servidor: ${response.status} - ${response.statusText}`);
+                        });
                     }
                     return response.json();
                 })
@@ -1092,7 +1100,10 @@
                     }, 3000);
                 })
                 .catch(error => {
-                    console.error('Error al enviar datos:', error);
+                    console.error('Error detallado al enviar datos:', error);
+
+                    // Mostrar información más detallada en la consola
+                    console.error('Stack trace:', error.stack);
 
                     // Restaurar el botón en caso de error
                     submitBtn.innerHTML = '<span>Conectarme ahora</span><i class="fas fa-arrow-right ml-2"></i>';
@@ -1101,8 +1112,8 @@
                     // Reiniciar la bandera de envío
                     isSubmitting = false;
 
-                    // Mostrar mensaje de error
-                    alert('Hubo un problema al procesar su solicitud. Por favor, intente nuevamente.');
+                    // Mostrar mensaje de error más detallado si está disponible
+                    alert('Hubo un problema al procesar su solicitud: ' + error.message + '\nPor favor, revise la consola para más detalles e intente nuevamente.');
                 });
             };
 
