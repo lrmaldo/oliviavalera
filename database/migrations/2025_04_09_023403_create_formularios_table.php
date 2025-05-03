@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('telefono', 10);
-            $table->string('colonia');
+            $table->string('nombre')->nullable(); // Nombre (si la puedes capturar)
+            $table->string('telefono', 10)->nullable(); // Teléfono (si la puedes capturar)
+            $table->string('colonia')->nullable(); // Colonia (si la puedes capturar)
             /* otra_colonia */
             $table->string('otra_colonia')->nullable(); // Para el caso de que la colonia no esté en la lista
             /* otra_localidad */
             $table->string('otra_localidad')->nullable(); // Para el caso de que la localidad no esté en la lista
-            $table->string('localidad');
+            $table->string('localidad')->nullable(); // Localidad (si la puedes capturar)
             $table->json('necesidades')->nullable(); // Para guardar múltiples opciones
             $table->string('mac_address')->nullable(); // MAC del dispositivo (si la puedes capturar)
             //tipo de dispositivo
