@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder
         //hotspot
         Hotspot::create([
             'name' => 'Zona Principal',
-            'descripcion' => 'Descripción del hotspot 1',
             'activo' => true,
         ]);
     }
