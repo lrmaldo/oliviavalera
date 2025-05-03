@@ -833,14 +833,14 @@
                 }
             });
 
-            // Función para validar el select de colonia
+            // Función para validar el select de colonia o localidad
             function validateSelect(select) {
                 const errorMsgEl = document.getElementById(`${select.id}-error`);
 
                 if (!select.value) {
-                    $(select).next('.select2-container').addClass('border-red-500');
-                    errorMsgEl.style.display = 'block';
-                    // Ya no retorna false ya que no es obligatorio
+                    // Estos campos ya no son obligatorios, así que no mostramos error
+                    $(select).next('.select2-container').removeClass('border-red-500');
+                    errorMsgEl.style.display = 'none';
                     return true;
                 } else {
                     $(select).next('.select2-container').removeClass('border-red-500');
@@ -989,11 +989,8 @@
                     }
                 });
 
-                // Validar el select de colonia
-                if (!validateSelect(document.getElementById('colonia'))) {
-                    // Ya no es requerido, así que no afecta la validez del formulario
-                    // isFormValid = false;
-                }
+                // Validar el select de colonia - no afecta la validez general
+                validateSelect(document.getElementById('colonia'));
 
                 // Si "Otra" está seleccionada, validar el campo adicional
                 if (document.getElementById('colonia').value === 'otra') {
@@ -1002,11 +999,8 @@
                     }
                 }
 
-                // Validar el select de localidad
-                if (!validateSelect(document.getElementById('localidad'))) {
-                    // Ya no es requerido, así que no afecta la validez del formulario
-                    // isFormValid = false;
-                }
+                // Validar el select de localidad - no afecta la validez general
+                validateSelect(document.getElementById('localidad'));
 
                 // Si "Otra localidad" está seleccionada, validar el campo adicional
                 if (document.getElementById('localidad').value === 'otra') {
@@ -1051,6 +1045,15 @@
                     const mac = "{{ $mac_address }}";
                     formData.append('mac_address', mac);
                 @endif
+
+                // Asegurar que colonia y localidad se consideren como campos opcionales
+                if (!$('#colonia').val()) {
+                    formData.set('colonia', '');
+                }
+
+                if (!$('#localidad').val()) {
+                    formData.set('localidad', '');
+                }
 
                 // Para depuración: mostrar qué campos se envían
                 console.log('Datos a enviar:');
